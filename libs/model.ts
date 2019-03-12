@@ -5,6 +5,16 @@ import {
 } from 'axios'
 
 export namespace api {
+  export namespace auth {
+    export type config = {
+      endpoint?: string,
+      version?: version
+    }
+    export type loginResult = {
+      AccessToken: string,
+      RefreshToken: string
+    }
+  }
   export type version = 'v1' | 'v2' | 'v3'
   export type authType = 'token' | 'apikey' | 'none'
   export type constructorProps = {
