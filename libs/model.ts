@@ -57,7 +57,7 @@ export namespace Api {
   export namespace auth {
     export type config = {
       endpoint?: string,
-      version?: version
+      version?: Version
     }
     export type loginResult = {
       AccessToken: string,
@@ -89,14 +89,20 @@ export namespace Api {
       }
     }
   }
-  export type version = 'v1' | 'v2' | 'v3'
+  export type Version = 'v1' | 'v2' | 'v3'
   export type authType = 'token' | 'apikey' | 'none'
   export type constructorProps = {
     token: string,
     endpoint?: string,
-    version?: version
+    version?: Version
   }
   export type headers = {
     [key: string]: string
   }
+  export interface ConfigBuilder {
+    setVersion(version: Version): ConfigBuilder
+    setEndpoint(endpoint: string): ConfigBuilder
+    updateToken(token: string): ConfigBuilder
+    getConfig(): constructorProps
+  }  
 }

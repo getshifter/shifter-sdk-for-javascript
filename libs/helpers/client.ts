@@ -21,7 +21,7 @@ export default class Client {
     if (config.endpoint) this.endpoint = config.endpoint
     if (config.version) this.version = config.version
   }
-  protected updateVersion(version: Api.version): void {
+  protected updateVersion(version: Api.Version): void {
     this.version = version
   }
   protected updateAuthType(type: Api.authType): void {
