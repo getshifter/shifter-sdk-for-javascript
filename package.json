@@ -4,7 +4,12 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint 'libs/**/*.{ts,tsx}'",
+    "doc": "typedoc --out docs libs/",
+    "test:watch": "jest --watch",
+    "test:dev": "jest --watch --silent=false --verbose false --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,5 +30,24 @@
     "ts-jest": "^24.0.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/__tests__/**/*.+(ts|tsx|js)",
+      "**/__tests__/*/*.+(ts|tsx|js)"
+    ]
   }
 }
