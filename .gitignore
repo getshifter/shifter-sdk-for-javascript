@@ -3,3 +3,5 @@ node_modules/
 .webpack
 typeGen.js
 run.js
+examples/
+dist/
