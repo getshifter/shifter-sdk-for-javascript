@@ -4,30 +4,30 @@ import axios, {
   AxiosPromise,
 } from 'axios'
 
-import { api } from '../model'
+import { Api } from '../model'
 
 
-export default class Client implements api.Client {
+export default class Client {
   protected token: string
   protected endpoint: string = 'https://api.getshifter.io'
   protected version: string = 'v1'
   protected client: AxiosInstance
-  protected authType: api.authType = 'token'
+  protected authType: Api.authType = 'token'
   protected namespace: string = ''
 
-  constructor(config: api.constructorProps, client: AxiosInstance = axios) {
+  constructor(config: Api.constructorProps, client: AxiosInstance = axios) {
     this.token = config.token;
     this.client = client
     if (config.endpoint) this.endpoint = config.endpoint
     if (config.version) this.version = config.version
   }
-  updateVersion(version: api.version) {
+  protected updateVersion(version: Api.version): void {
     this.version = version
   }
-  updateAuthType(type: api.authType) {
+  protected updateAuthType(type: Api.authType): void {
     this.authType = type
   }
-  getDefaultHeader() {
+  protected getDefaultHeader(): Api.headers {
     if (this.authType === 'token') {
       return {
         Authorization: this.token
@@ -40,7 +40,7 @@ export default class Client implements api.Client {
     }
     return {}
   }
-  getConfig(opt?: AxiosRequestConfig): AxiosRequestConfig  {
+  protected getConfig(opt?: AxiosRequestConfig): AxiosRequestConfig  {
     const config = {
       headers: this.getDefaultHeader()
     }
@@ -50,7 +50,7 @@ export default class Client implements api.Client {
       ...opt
     }
   }
-  getRequestURL(path?: string) {
+  protected getRequestURL(path?: string): string {
     const urls = [
       this.endpoint,
       this.version
@@ -59,12 +59,12 @@ export default class Client implements api.Client {
     if (path) urls.push(path)
     return urls.join("/")
   }
-  get(path?: string, config?: AxiosRequestConfig) {
+  protected get<T = any>(path?: string, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig(config);
     return this.client.get(url, conf);
   }
-  post<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
+  protected post<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,
@@ -72,7 +72,7 @@ export default class Client implements api.Client {
     });
     return this.client.post(url, conf);
   }
-  put<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
+  protected put<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,
@@ -80,7 +80,7 @@ export default class Client implements api.Client {
     });
     return this.client.put(url, conf);
   }
-  delete<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
+  protected delete<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,

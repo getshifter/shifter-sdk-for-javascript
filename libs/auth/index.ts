@@ -1,18 +1,18 @@
 import axios, { AxiosInstance } from 'axios'
-import { api } from '../model'
+import { Api } from '../model'
 
 class Auth {
   private endpoint: string = 'https://api.getshifter.io'
   private version: string = 'v1'
   private client: AxiosInstance
   private namespace: string = 'login'
-  constructor(config?: api.auth.config, client?: AxiosInstance) {
+  constructor(config?: Api.auth.config, client?: AxiosInstance) {
     this.client = client || axios
     if (!config) return
     if (config.endpoint) this.endpoint = config.endpoint
     if (config.version) this.version = config.version
   }
-  async login(username: string, password: string): Promise<api.auth.loginResult> {
+  async login(username: string, password: string): Promise<Api.auth.loginResult> {
     const param = {
         username,
         password

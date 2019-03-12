@@ -1,10 +1,14 @@
 import Client from '../helpers/client'
+import {
+  Api
+} from '../model'
 
 class Status extends Client {
   version = 'v2'
   namespace = 'status'
-  getStatus() {
-    return this.get()
+  async getStatus(): Promise<Api.Status.Response> {
+    const { data } = await this.get()
+    return data
   }
 }
 
