@@ -1,4 +1,5 @@
 export namespace Types {
+  export type SitePath = 'projects' | 'sites'
   export type BooleanString = 'true' | 'false'
   export type NumberString = '1' | string
   export namespace Maintenance {
@@ -51,6 +52,66 @@ export namespace Types {
     }
     export type ListItems = Item[]
   }
+  export namespace Organizations {
+    export type Item = {
+      org_id: string
+      org_name: string
+      org_owner: string
+      org_website: string
+      phone_number: string
+      org_country: string
+      org_state: string
+      org_twitter: string
+      org_size: string
+      projects: Types.Sites.ListItems
+      members: Members.ListItems
+    }
+    export type MetaItem = {
+      org_id: string
+      org_name: string
+      org_owner: string
+      org_website: string
+      phone_number: string
+      org_country: string
+      org_state: string
+      org_twitter: string
+      org_size: string
+      projects: []
+      members: []
+    }
+    export type ListItems = Item[]
+    export type ListMetaItems = MetaItem[]
+    export namespace Members {
+      export type Role = 'member'
+      export type UserStatus = 'approval' | 'pending'
+      export type Item = {
+        username: string
+        email: string
+        user_status: UserStatus
+        role: Role
+      }
+      export type ListItems = Item[]
+    }
+  }
+  export namespace Sites {
+    export type StockState = 'inuse' | string
+    export type Item = {
+      project_name: string
+      stock_state: StockState
+      project_id: string
+      project_owner: string
+      wordpress_site_url: null | string,
+      php_version: string
+      access_url: string
+      last_launched?: string
+      disk_usage: number
+      deploy_type?: 'shifter_cdn'
+      raw_url: string
+      create_time: string
+      automation: boolean
+    }
+    export type ListItems = Item[]
+  }
 }
 
 export namespace Api {
@@ -88,6 +149,18 @@ export namespace Api {
         invoices: Types.Invoice.ListItems
       }
     }
+  }
+
+  export namespace Organizations {
+    export type List = {
+      owner: Types.Organizations.ListItems
+      member: Types.Organizations.ListItems
+    }
+    export type ListMeta = {
+      owner: Types.Organizations.ListMetaItems
+      member: Types.Organizations.ListMetaItems
+    }
+    export type Detail = Types.Organizations.Item
   }
   export type Version = 'v1' | 'v2' | 'v3'
   export type authType = 'token' | 'apikey' | 'none'

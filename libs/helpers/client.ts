@@ -14,6 +14,7 @@ export default class Client {
   protected client: AxiosInstance
   protected authType: Api.authType = 'token'
   protected namespace: string = ''
+  protected suffix: string = ''
 
   constructor(config: Api.constructorProps, client: AxiosInstance = axios) {
     this.token = config.token;
@@ -57,6 +58,7 @@ export default class Client {
     ]
     if (this.namespace) urls.push(this.namespace)
     if (path) urls.push(path)
+    if (this.suffix) urls.push(this.suffix)
     return urls.join("/")
   }
   protected get<T = any>(path?: string, config?: AxiosRequestConfig): AxiosPromise<T> {
