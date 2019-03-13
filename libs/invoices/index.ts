@@ -10,7 +10,7 @@ class Invoice extends Client {
     const { data } = await this.get()
     return data
   }
-  async getByMonth(month: string): Promise<Api.Invoice.Item.Response> {
+  async describe(month: string): Promise<Api.Invoice.Item.Response> {
     const { data } = await this.get(month)
     return {
       statusCode: data.statusCode,

@@ -112,6 +112,24 @@ export namespace Types {
     }
     export type ListItems = Item[]
   }
+  export namespace Coupon {
+    export type Item = {
+      id: string
+      object: string
+      amount_off: string
+      created: string
+      currency: Types.Currency
+      duration: string
+      duration_in_months: number
+      metadata: {},
+      name: any
+      percent_off: any
+      percent_off_precise: any
+      redeem_by: any
+      times_redeemed: number
+      valid: boolean
+    }
+  }
 }
 
 export namespace Api {
@@ -150,6 +168,12 @@ export namespace Api {
       }
     }
   }
+  export namespace Coupon {
+    export type Detail = {
+      statusCode: number
+      coupon: Types.Coupon.Item
+    }
+  }
 
   export namespace Organizations {
     export type List = {
@@ -161,6 +185,13 @@ export namespace Api {
       member: Types.Organizations.ListMetaItems
     }
     export type Detail = Types.Organizations.Item
+    export namespace Sites {
+      export type Detail = Types.Sites.Item
+      export type List = Types.Sites.ListItems
+    }
+    export namespace Members {
+      export type List = Types.Organizations.Members.ListItems
+    }
   }
   export type Version = 'v1' | 'v2' | 'v3'
   export type authType = 'token' | 'apikey' | 'none'

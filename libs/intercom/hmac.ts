@@ -3,13 +3,11 @@ import {
   Api
 } from '../model'
 
-class Status extends Client {
+export default class HMAC extends Client {
   version = 'v2'
-  namespace = 'status'
-  async describe(): Promise<Api.Status.Response> {
+  namespace = 'intercom/hmac'
+  async create(): Promise<Api.Intercom.HMAC.Response> {
     const { data } = await this.get()
     return data
   }
 }
-
-export default Status

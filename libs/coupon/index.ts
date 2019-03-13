@@ -1,16 +1,15 @@
 import Client from '../helpers/client'
-/*
+
 import {
-  api
+  Api
 } from '../model'
-*/
+
 
 class Coupon extends Client {
   version = 'v2'
   namespace = 'coupon'
-  async getCoupon(): Promise<any> {
+  async describe(): Promise<Api.Coupon.Detail> {
     const { data } = await this.get()
-    console.log(JSON.stringify(data))
     return data
   }
 }

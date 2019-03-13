@@ -1,20 +1,17 @@
 import OrganizationClient from './client'
 
 import {
-  // Api,
-  Types,
+  Api,
 } from '../model'
 
 
 class Sites extends OrganizationClient {
-  suffix: Types.SitePath = 'projects'
-  async list(orgId: string): Promise<any> { // Promise<Api.Organization.HMAC.Response> {
-    const { data } = await this.get(orgId)
-    console.log(JSON.stringify(data))
+  async list(orgId: string): Promise<Api.Organizations.Sites.List> {
+    const { data } = await this.get(`${orgId}/projects`)
     return data
   }
-  async describe(orgId: string): Promise<any> {
-    const { data } = await this.get(orgId)
+  async describe(orgId: string, siteId: string): Promise<Api.Organizations.Sites.Detail> {
+    const { data } = await this.get(`${orgId}/projects/${siteId}`)
     return data
   }
 }
