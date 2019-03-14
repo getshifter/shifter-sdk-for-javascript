@@ -27,6 +27,10 @@ class Organization extends OrganizationClient {
     await this.put(orgId, config)
     return ''
   }
+  async delete(orgId: string): Promise<''> {
+    await this.del(orgId)
+    return ''
+  }
 }
 
 export default Organization

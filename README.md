@@ -132,6 +132,16 @@ client.descibe('org_id')
 }
 ```
 
+
+#### Delete
+
+```typescript
+client.delete('org_id')
+  .then(() => console.log('ok'))
+
+ok
+```
+
 ### Status
 
 

@@ -86,7 +86,7 @@ export default class Client {
     });
     return this.client(conf)
   }
-  protected delete<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
+  protected del<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,
