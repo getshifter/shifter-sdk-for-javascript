@@ -53,6 +53,15 @@ export namespace Types {
     export type ListItems = Item[]
   }
   export namespace Organizations {
+    export type Config = {
+      org_name: string
+      org_website?: string
+      phone_number?: string
+      org_country?: string
+      org_state?: string
+      org_twitter?: string
+      org_size?: string
+    }
     export type Item = {
       org_id: string
       org_name: string
@@ -195,6 +204,9 @@ export namespace Api {
       member: Types.Organizations.ListMetaItems
     }
     export type Detail = Types.Organizations.Item
+    export type CreateResult = {
+      org_id: string
+    }
     export namespace Sites {
       export type Detail = Types.Sites.Item
       export type List = Types.Sites.ListItems

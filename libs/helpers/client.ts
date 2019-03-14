@@ -70,24 +70,30 @@ export default class Client {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,
+      method: 'POST',
+      url,
       data: body
     });
-    return this.client.post(url, conf);
+    return this.client(conf)
   }
   protected put<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,
+      method: 'PUT',
+      url,
       data: body
     });
-    return this.client.put(url, conf);
+    return this.client(conf)
   }
   protected delete<T = any, B = any>(path?: string, body?: B, config?: AxiosRequestConfig): AxiosPromise<T> {
     const url = this.getRequestURL(path);
     const conf = this.getConfig({
       ...config,
+      method: 'DELETE',
+      url,
       data: body
     });
-    return this.client.delete(url, conf);
+    return this.client(conf)
   }
 }
