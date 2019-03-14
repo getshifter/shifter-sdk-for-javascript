@@ -29,12 +29,19 @@ client.login('USERNAME', 'PASSWORD')
 
 ### Statistics
 
+#### Initilize
+
 ```typescript
 import { Statistics } from 'shifter-sdk'
 
 const client = new Statistics.UsageSummary({
   token: 'YOUR_TOKEN'
 })
+```
+
+#### Describe Statistics
+
+```typescript
 client.describe()
   .then(result => console.log(result))
 
@@ -75,7 +82,6 @@ client.create({
 #### Update
 
 ```typescript
-// Create organization
 client.update('org_id', {
   org_name: 'organization name'
 }).then(() => console.log('ok'))
@@ -86,7 +92,6 @@ ok
 #### List
 
 ```typescript
-// Create organization
 client.list().then(result => console.log(result))
 
 [
@@ -109,7 +114,6 @@ client.list().then(result => console.log(result))
 #### Describe
 
 ```typescript
-// Create organization
 client.descibe('org_id')
   .then(result => console.log(result))
 
@@ -126,4 +130,43 @@ client.descibe('org_id')
   projects: [],
   members: []
 }
+```
+
+### Status
+
+
+#### Initilize
+
+```typescript
+import { Organizations } from 'shifter-sdk'
+
+const client = new Organizations.Foundation({
+  token: 'YOUR_TOKEN'
+})
+```
+
+#### Describe status
+
+```typescript
+client.descibe()
+  .then(result => console.log(result))
+
+{ maintenance:
+   { message:
+      'XXXXXXXXXXXx',
+     target: [ 'generator', 'container' ],
+     status: 'not_maintenance' },
+  user:
+   { credit_card_status: 'registered',
+     upper_limit_projects: '50',
+     notification: { email: [Object] },
+     group: { name: 'owner' },
+     max_transfer_gb: '10240',
+     max_disk_gb: '1024',
+     domain_setting: 'true',
+     import_archives: 'true',
+     export_archives: 'true',
+     backup: '365',
+     enable_subuser: 'true',
+     export_artifact: 'true' } }
 ```
