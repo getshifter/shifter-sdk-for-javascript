@@ -142,6 +142,15 @@ client.delete('org_id')
 ok
 ```
 
+#### Activate invited member
+
+```typescript
+client.activateInvitation('org_id', 'key')
+  .then(() => console.log('ok'))
+
+ok
+```
+
 ### Organization Site
 
 #### Initilize
@@ -224,6 +233,51 @@ client.remove('org_id', ['site_id'])
 ok
 ```
 
+
+### Organization Members
+
+#### Initilize
+```typescript
+import { Organizations } from 'shifter-sdk'
+
+const client = new Organizations.Members({
+  token: 'YOUR_TOKEN'
+})
+```
+
+#### List site of organization
+
+```typescript
+client.list('org_id')
+  .then(result => console.log(result))
+
+[
+  {
+    "username": "johndoe",
+    "email": "hhoge@example.com",
+    "user_status": "approval"
+    "role": "owner"
+  }
+]
+```
+
+#### Add member to organization
+
+```typescript
+client.add('org_id', 'hoge@example.com', 'username')
+  .then(() => console.log('ok'))
+
+ok
+```
+
+#### Remove members from organization
+
+```typescript
+client.remove('org_id', ['username'])
+  .then(() => console.log('ok'))
+
+ok
+```
 
 ### Status
 

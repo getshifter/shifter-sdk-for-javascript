@@ -31,6 +31,10 @@ class Organization extends OrganizationClient {
     await this.del(orgId)
     return ''
   }
+  async activateInvitation(orgId: string, key: string) {
+    await this.post(`${orgId}/activation/${key}`)
+    return ''
+  }
 }
 
 export default Organization
