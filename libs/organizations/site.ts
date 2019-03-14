@@ -14,6 +14,20 @@ class Sites extends OrganizationClient {
     const { data } = await this.get(`${orgId}/projects/${siteId}`)
     return data
   }
+  async add(orgId: string, siteIds: string[]): Promise<''> {
+    const body = {
+      projects: siteIds
+    }
+    await this.post(`${orgId}/projects`, body)
+    return ''
+  }
+  async remove(orgId: string, siteIds: string[]): Promise<''> {
+    const body = {
+      projects: siteIds
+    }
+    await this.del(`${orgId}/projects`, body)
+    return ''
+  }
 }
 
 export default Sites

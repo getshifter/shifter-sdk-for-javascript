@@ -142,6 +142,89 @@ client.delete('org_id')
 ok
 ```
 
+### Organization Site
+
+#### Initilize
+```typescript
+import { Organizations } from 'shifter-sdk'
+
+const client = new Organizations.Sites({
+  token: 'YOUR_TOKEN'
+})
+```
+
+#### List site of organization
+
+```typescript
+client.list('org_id')
+  .then(result => console.log(result))
+
+[
+  {
+    "project_name": "test-sub",
+    "stock_state": "inuse",
+    "project_id": "xxxx-xxxxxx-xxxxxx-xxxxxx",
+    "project_owner": "xxxxxx",
+    "php_version": "7.2",
+    "access_url": "xxxxxxxxx.on.getshifter.io",
+    "update_time": "",
+    "last_launched": false,
+    "disk_usage": 0,
+    "deploy_type": false,
+    "raw_url": "xxxxxxxxx.cloudfront.net",
+    "create_time": "2018-07-05T07:41:25+00:00",
+    "automation": false,
+    "generate_state": "",
+    "trial": ""
+  }
+]
+```
+
+
+#### Get site of organization
+
+```typescript
+client.describe('org_id', 'site_id')
+  .then(result => console.log(result))
+
+{
+  "project_name": "test-sub",
+  "stock_state": "inuse",
+  "project_id": "xxxx-xxxxxx-xxxxxx-xxxxxx",
+  "project_owner": "xxxxxx",
+  "php_version": "7.2",
+  "access_url": "xxxxxxxxx.on.getshifter.io",
+  "update_time": "",
+  "last_launched": false,
+  "disk_usage": 0,
+  "deploy_type": false,
+  "raw_url": "xxxxxxxxx.cloudfront.net",
+  "create_time": "2018-07-05T07:41:25+00:00",
+  "automation": false,
+  "generate_state": "",
+  "trial": ""
+}
+```
+
+#### Add site to organization
+
+```typescript
+client.add('org_id', ['site_id'])
+  .then(() => console.log('ok'))
+
+ok
+```
+
+#### Remove site from organization
+
+```typescript
+client.remove('org_id', ['site_id'])
+  .then(() => console.log('ok'))
+
+ok
+```
+
+
 ### Status
 
 
