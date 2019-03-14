@@ -47,3 +47,83 @@ client.describe()
   track_month: 201903
 }
 ```
+
+
+### Organization
+
+#### Initilize
+```typescript
+import { Organizations } from 'shifter-sdk'
+
+const client = new Organizations.Foundation({
+  token: 'YOUR_TOKEN'
+})
+```
+
+#### Create
+
+```typescript
+client.create({
+  org_name: 'organization name'
+}).then(result => console.log(result))
+
+{
+  org_id: 'xxxxxxxxxxx'
+}
+```
+
+#### Update
+
+```typescript
+// Create organization
+client.update('org_id', {
+  org_name: 'organization name'
+}).then(() => console.log('ok'))
+
+ok
+```
+
+#### List
+
+```typescript
+// Create organization
+client.list().then(result => console.log(result))
+
+[
+ {
+    org_id: 'xxxxx-xxxx-xxxx-xxxx',
+    org_name: 'xxxxx',
+    org_owner: 'xxxxxxx',
+    org_website: '',
+    phone_number: '',
+    org_country: '',
+    org_state: '',
+    org_twitter: '',
+    org_size: '',
+    projects: [],
+    members: []
+  }
+] 
+```
+
+#### Describe
+
+```typescript
+// Create organization
+client.descibe('org_id')
+  .then(result => console.log(result))
+
+{
+  org_id: 'xxxxx-xxxx-xxxx-xxxx',
+  org_name: 'xxxxx',
+  org_owner: 'xxxxxxx',
+  org_website: '',
+  phone_number: '',
+  org_country: '',
+  org_state: '',
+  org_twitter: '',
+  org_size: '',
+  projects: [],
+  members: []
+}
+```
