@@ -174,6 +174,16 @@ export namespace Api {
       coupon: Types.Coupon.Item
     }
   }
+  export namespace Statistics {
+    export type UsageSummary = {
+      update_time: string
+      projects_count: number
+      disk_total: number
+      transfer_total: number
+      user_name: string
+      track_month: number
+    }
+  }
 
   export namespace Organizations {
     export type List = {
