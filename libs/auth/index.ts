@@ -12,18 +12,13 @@ class Auth {
     if (config.endpoint) this.endpoint = config.endpoint
     if (config.version) this.version = config.version
   }
-  async login(username: string, password: string): Promise<Api.auth.loginResult> {
-    const param = {
-        username,
-        password
-    }
-    const url = [
-      this.endpoint,
-      this.version,
-      this.namespace
-    ].join("/")
+  private async request(url: string, method: 'PUT' | 'POST', param?: any) {
     try {
-      const { data } = await this.client.post(url, param)
+      const { data } = await this.client({
+        method,
+        url,
+        data: param
+      })
       return data
     } catch (e) {
       if (!e.response) throw e
@@ -37,6 +32,26 @@ class Auth {
       if (e.response.statusText) err.code = e.response.statusText
       throw err
     }
+  }
+  async refresh(refreshToken: string): Promise<Api.auth.refreshResult> {
+    const url = [
+      this.endpoint,
+      this.version,
+      this.namespace
+    ].join("/")
+    return this.request(url, 'PUT', { refreshToken })
+  }
+  async login(username: string, password: string): Promise<Api.auth.loginResult> {
+    const param = {
+        username,
+        password
+    }
+    const url = [
+      this.endpoint,
+      this.version,
+      this.namespace
+    ].join("/")
+    return this.request(url, 'POST', param);
   }
 }
 

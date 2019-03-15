@@ -9,6 +9,20 @@ import { Auth, Statistics } from 'shifter-sdk'
 
 const client = new Auth()
 client.login('USERNAME', 'PASSWORD')
+  .then(result => console.log(result))
+{
+  AccessToken: string,
+  RefreshToken: string
+}
+```
+
+#### Basic Usage
+
+```typescript
+import { Auth, Statistics } from 'shifter-sdk'
+
+const client = new Auth()
+client.login('USERNAME', 'PASSWORD')
   .then(({ AccessToken }) => {
     const client = new Statistics.UsageSummary({
       token: AccessToken
@@ -24,6 +38,23 @@ client.login('USERNAME', 'PASSWORD')
   transfer_total: 0,
   user_name: 'hello',
   track_month: 201903
+}
+```
+
+#### Refresh access token
+
+```typescript
+import { Auth, Statistics } from 'shifter-sdk'
+
+const client = new Auth()
+client.login('USERNAME', 'PASSWORD')
+  .then(({ RefreshToken }) => {
+    return client.refresh(RefreshToken))
+  })
+  .then(result => console.log(result))
+
+{
+  AccessToken: string
 }
 ```
 
@@ -63,7 +94,7 @@ client.describe()
 import { Organizations } from 'shifter-sdk'
 
 const client = new Organizations.Foundation({
-  token: 'YOUR_TOKEN'
+  token: 'ACCESS_TOKEN'
 })
 ```
 

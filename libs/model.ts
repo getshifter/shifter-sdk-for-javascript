@@ -147,6 +147,9 @@ export namespace Api {
       endpoint?: string,
       version?: Version
     }
+    export type refreshResult = {
+      accessToken: string,
+    }
     export type loginResult = {
       AccessToken: string,
       RefreshToken: string
