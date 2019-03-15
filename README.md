@@ -22,8 +22,19 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
      * [Get WordPress starting status](#get-wordpress-starting-status)
      * [Stop WordPress container](#stop-wordpress-container)
      * [Delete site](#delete-site)
-  * [Organizations](#organizations)
+  * [Artifacts](#artifacts)
      * [Initilize](#initilize-1)
+     * [Generate](#generate)
+     * [Get download URL](#get-download-url)
+     * [Get genrating progress](#get-genrating-progress)
+     * [List artifacts](#list-artifacts)
+     * [Publish](#publish)
+     * [Stop generating artifact](#stop-generating-artifact)
+     * [Update specific artifact name](#update-specific-artifact-name)
+     * [Enable preview](#enable-preview)
+     * [Delete](#delete)
+  * [Organizations](#organizations)
+     * [Initilize](#initilize-2)
      * [Create](#create)
      * [Update](#update)
      * [List](#list)
@@ -31,18 +42,18 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
      * [Delete](#delete)
      * [Activate invited member](#activate-invited-member)
   * [Organization Site](#organization-site)
-     * [Initilize](#initilize-2)
+     * [Initilize](#initilize-3)
      * [List site of organization](#list-site-of-organization)
      * [Get site of organization](#get-site-of-organization)
      * [Add site to organization](#add-site-to-organization)
      * [Remove site from organization](#remove-site-from-organization)
   * [Organization Members](#organization-members)
-     * [Initilize](#initilize-3)
+     * [Initilize](#initilize-4)
      * [List site of organization](#list-site-of-organization-1)
      * [Add member to organization](#add-member-to-organization)
      * [Remove members from organization](#remove-members-from-organization)
   * [Status](#status)
-     * [Initilize](#initilize-4)
+     * [Initilize](#initilize-5)
      * [Describe status](#describe-status)
 
 ## Usage
@@ -264,6 +275,109 @@ await client.stopWordPress(siteId)
 await client.delete(siteId)
 ""
 ```
+### Artifacts
+
+#### Initilize
+
+```typescript
+import { Artifacts } from 'shifter-sdk'
+
+const client = new Artifacts({
+  token: 'ACCESS_TOKEN'
+})
+```
+
+
+#### Generate
+
+Start to generate a new artifact
+
+```typescript
+const sites = await client.generate(siteId)
+{
+ "project_id":"xxxx-xxxxx-xxxxx-xxxx",
+ "artifact_id":"xxxx-xxxxx-xxxxx-xxxx"
+}
+```
+
+#### Get download URL
+
+```typescript
+await client.getDownloadURL(siteId, artifactId)
+{
+  "url": "https://xxxxx"
+}
+```
+
+#### Get genrating progress
+
+```typescript
+await client.getGeneratingProcess(siteId)
+
+{
+  "percent": null,
+  "sum_url": 0,
+  "created_url": 0,
+  "step": "queuing",
+  "update_time": "2019-02-18T03:16:21.760Z",
+  "owner": "john",
+  "message": "queuing",
+  "disk_usage": 4
+}
+```
+
+#### List artifacts
+
+```typescript
+const sites = await client.list()
+
+[
+ {
+   "artifact_id": "xxx-xxxxx-xxxxx",
+   "status": "published-shifter",
+   "context_status": "success",
+   "created_at": "2019-02-18T03:15:49+00:00",
+   "failure_pages": "[]"
+ }
+]
+```
+
+#### Publish
+
+```typescript
+await Client.publish(siteId, artifactId)
+''
+```
+
+#### Stop generating artifact
+
+```typescript
+const sites = await client.stopGenerating(siteId, artifactId)
+""
+```
+
+#### Update specific artifact name
+
+```typescript
+const sites = await client.updateName(siteId, artifactId, name)
+""
+```
+
+#### Enable preview
+
+```typescript
+await client.enablePreview(siteId, artifactId)
+
+"https://xxxxx-xxxx-xxxxx-xxxx.preview.getshifter.io"
+```
+
+#### Delete
+
+```typescript
+await client.delete(siteId, artifactId)
+""
+```
+
 ### Organizations
 
 #### Initilize

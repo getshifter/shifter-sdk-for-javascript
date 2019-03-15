@@ -92,8 +92,21 @@
 									<li><a href="#delete-site">Delete site</a></li>
 								</ul>
 							</li>
-							<li><a href="#organizations">Organizations</a><ul>
+							<li><a href="#artifacts">Artifacts</a><ul>
 									<li><a href="#initilize-1">Initilize</a></li>
+									<li><a href="#generate">Generate</a></li>
+									<li><a href="#get-download-url">Get download URL</a></li>
+									<li><a href="#get-genrating-progress">Get genrating progress</a></li>
+									<li><a href="#list-artifacts">List artifacts</a></li>
+									<li><a href="#publish">Publish</a></li>
+									<li><a href="#stop-generating-artifact">Stop generating artifact</a></li>
+									<li><a href="#update-specific-artifact-name">Update specific artifact name</a></li>
+									<li><a href="#enable-preview">Enable preview</a></li>
+									<li><a href="#delete">Delete</a></li>
+								</ul>
+							</li>
+							<li><a href="#organizations">Organizations</a><ul>
+									<li><a href="#initilize-2">Initilize</a></li>
 									<li><a href="#create">Create</a></li>
 									<li><a href="#update">Update</a></li>
 									<li><a href="#list">List</a></li>
@@ -103,7 +116,7 @@
 								</ul>
 							</li>
 							<li><a href="#organization-site">Organization Site</a><ul>
-									<li><a href="#initilize-2">Initilize</a></li>
+									<li><a href="#initilize-3">Initilize</a></li>
 									<li><a href="#list-site-of-organization">List site of organization</a></li>
 									<li><a href="#get-site-of-organization">Get site of organization</a></li>
 									<li><a href="#add-site-to-organization">Add site to organization</a></li>
@@ -111,14 +124,14 @@
 								</ul>
 							</li>
 							<li><a href="#organization-members">Organization Members</a><ul>
-									<li><a href="#initilize-3">Initilize</a></li>
+									<li><a href="#initilize-4">Initilize</a></li>
 									<li><a href="#list-site-of-organization-1">List site of organization</a></li>
 									<li><a href="#add-member-to-organization">Add member to organization</a></li>
 									<li><a href="#remove-members-from-organization">Remove members from organization</a></li>
 								</ul>
 							</li>
 							<li><a href="#status">Status</a><ul>
-									<li><a href="#initilize-4">Initilize</a></li>
+									<li><a href="#initilize-5">Initilize</a></li>
 									<li><a href="#describe-status">Describe status</a></li>
 								</ul>
 							</li>
@@ -285,6 +298,66 @@ client.describe()
 <span class="hljs-string">""</span></code></pre>
 				<h4 id="delete-site">Delete site</h4>
 				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId)
+<span class="hljs-string">""</span></code></pre>
+				<h3 id="artifacts">Artifacts</h3>
+				<h4 id="initilize">Initilize</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Artifacts } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Artifacts({
+  token: <span class="hljs-string">'ACCESS_TOKEN'</span>
+})</code></pre>
+				<h4 id="generate">Generate</h4>
+				<p>Start to generate a new artifact</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.generate(siteId)
+{
+ <span class="hljs-string">"project_id"</span>:<span class="hljs-string">"xxxx-xxxxx-xxxxx-xxxx"</span>,
+ <span class="hljs-string">"artifact_id"</span>:<span class="hljs-string">"xxxx-xxxxx-xxxxx-xxxx"</span>
+}</code></pre>
+				<h4 id="get-download-url">Get download URL</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.getDownloadURL(siteId, artifactId)
+{
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://xxxxx"</span>
+}</code></pre>
+				<h4 id="get-genrating-progress">Get genrating progress</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.getGeneratingProcess(siteId)
+
+{
+  <span class="hljs-string">"percent"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">"sum_url"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">"created_url"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">"step"</span>: <span class="hljs-string">"queuing"</span>,
+  <span class="hljs-string">"update_time"</span>: <span class="hljs-string">"2019-02-18T03:16:21.760Z"</span>,
+  <span class="hljs-string">"owner"</span>: <span class="hljs-string">"john"</span>,
+  <span class="hljs-string">"message"</span>: <span class="hljs-string">"queuing"</span>,
+  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">4</span>
+}</code></pre>
+				<h4 id="list-artifacts">List artifacts</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.list()
+
+[
+ {
+   <span class="hljs-string">"artifact_id"</span>: <span class="hljs-string">"xxx-xxxxx-xxxxx"</span>,
+   <span class="hljs-string">"status"</span>: <span class="hljs-string">"published-shifter"</span>,
+   <span class="hljs-string">"context_status"</span>: <span class="hljs-string">"success"</span>,
+   <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2019-02-18T03:15:49+00:00"</span>,
+   <span class="hljs-string">"failure_pages"</span>: <span class="hljs-string">"[]"</span>
+ }
+]</code></pre>
+				<h4 id="publish">Publish</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> Client.publish(siteId, artifactId)
+<span class="hljs-string">''</span></code></pre>
+				<h4 id="stop-generating-artifact">Stop generating artifact</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.stopGenerating(siteId, artifactId)
+<span class="hljs-string">""</span></code></pre>
+				<h4 id="update-specific-artifact-name">Update specific artifact name</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.updateName(siteId, artifactId, name)
+<span class="hljs-string">""</span></code></pre>
+				<h4 id="enable-preview">Enable preview</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.enablePreview(siteId, artifactId)
+
+<span class="hljs-string">"https://xxxxx-xxxx-xxxxx-xxxx.preview.getshifter.io"</span></code></pre>
+				<h4 id="delete">Delete</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId, artifactId)
 <span class="hljs-string">""</span></code></pre>
 				<h3 id="organizations">Organizations</h3>
 				<h4 id="initilize">Initilize</h4>

@@ -17,7 +17,7 @@ export class Artifacts extends Client {
    * 
    * ```typescript
    * 
-   * const sites = await client.list()
+   * await client.list()
    * 
    * [
    *  {
@@ -40,6 +40,7 @@ export class Artifacts extends Client {
    * @param siteId 
    * @example
    * ```typescript
+   * 
    * await client.getGeneratingProcess(siteId)
    * 
    * {
@@ -65,6 +66,7 @@ export class Artifacts extends Client {
    * @param artifactId 
    * @example
    * ```typescript
+   * 
    * await client.getDownloadURL(siteId, artifactId)
    * {
    *   "url": "https://xxxxx"
@@ -82,6 +84,7 @@ export class Artifacts extends Client {
    * @param artifactId 
    * @example
    * ```typescript
+   * 
    * await client.enablePreview(siteId, artifactId)
    * 
    * "https://xxxxx-xxxx-xxxxx-xxxx.preview.getshifter.io"
@@ -100,7 +103,7 @@ export class Artifacts extends Client {
    * @example
    * ```typescript
    * 
-   * await orgClient.publish(siteId, artifactId)
+   * await client.publish(siteId, artifactId)
    * ''
    * ```
    */
@@ -116,6 +119,7 @@ export class Artifacts extends Client {
    * ```typescript
    * 
    * const sites = await client.generate(siteId)
+   * 
    * {
    *  "project_id":"xxxx-xxxxx-xxxxx-xxxx",
    *  "artifact_id":"xxxx-xxxxx-xxxxx-xxxx"
