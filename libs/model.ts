@@ -102,6 +102,17 @@ export namespace Types {
       export type ListItems = Item[]
     }
   }
+  export namespace Artifacts {
+    export type Item = {
+      artifact_id: string
+      status: string
+      context_status: string
+      created_at: string
+      failure_pages?: string
+      artifact_alias?: string
+    }
+    export type ListItems = Item[]
+  }
   export namespace Sites {
     export type StockState = 'inuse' | 'ingenerate' | 'inservice' | 'starting' | 'stopping' | 'loading'
     export type WpStartingStatus = 'INITIALIZING' | 'DEACTIVATE_PLUGINS' | 'INSTALLING_WORDPRESS' | 'REPLACEING_URLS' | 'CHANGE_PERMALINK_STRUCTURE' | 'COMPLETE' | 'ERROR_EXIT' | 'ERROR_WAIT' | string
@@ -163,6 +174,31 @@ export namespace Api {
     export type loginResult = {
       AccessToken: string,
       RefreshToken: string
+    }
+  }
+
+  export namespace Artifacts {
+    export namespace Generator {
+      export type StartResponse = {
+        artifact_id: string,
+        project_id: string
+      }
+      export type ProgressResponse = {
+        percent: number | null
+        sum_url: number
+        created_url: number
+        step: "queuing" | string
+        update_time: string
+        owner: string
+        message: "queuing" | string
+        disk_usage: number
+      }
+    }
+    export namespace List {
+      export type Response = Types.Artifacts.ListItems
+    }
+    export type PreviewURL = {
+      url: string
     }
   }
   export namespace Status {

@@ -6,3 +6,4 @@ run.js
 examples/
 dist/
 .DS_Store
+bin/
