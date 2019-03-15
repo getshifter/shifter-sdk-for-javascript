@@ -1,5 +1,37 @@
 # Shifter SDK for JavaScript
 
+## Table of Contents
+
+  * [Usage](#usage)
+     * [Sign in](#sign-in)
+        * [Basic Usage](#basic-usage)
+        * [Refresh access token](#refresh-access-token)
+     * [Statistics](#statistics)
+        * [Describe Statistics](#describe-statistics)
+        * [Describe site transfer amount](#describe-site-transfer-amount)
+     * [Organization](#organization)
+        * [Initilize](#initilize)
+        * [Create](#create)
+        * [Update](#update)
+        * [List](#list)
+        * [Describe](#describe)
+        * [Delete](#delete)
+        * [Activate invited member](#activate-invited-member)
+     * [Organization Site](#organization-site)
+        * [Initilize](#initilize-1)
+        * [List site of organization](#list-site-of-organization)
+        * [Get site of organization](#get-site-of-organization)
+        * [Add site to organization](#add-site-to-organization)
+        * [Remove site from organization](#remove-site-from-organization)
+     * [Organization Members](#organization-members)
+        * [Initilize](#initilize-2)
+        * [List site of organization](#list-site-of-organization-1)
+        * [Add member to organization](#add-member-to-organization)
+        * [Remove members from organization](#remove-members-from-organization)
+     * [Status](#status)
+        * [Initilize](#initilize-3)
+        * [Describe status](#describe-status)
+
 ## Usage
 
 ### Sign in
@@ -102,9 +134,124 @@ const result = await client.describe(siteId)
 ]
 ```
 
+### Sites
+#### Initilize
+```typescript
+import { Sites } from 'shifter-sdk'
 
+const client = new Sites({
+  token: 'ACCESS_TOKEN'
+})
+```
 
-### Organization
+#### List sites
+
+```typescript
+const sites = await client.list()
+[
+ {
+  "project_name": "test",
+  "stock_state": "inuse",
+  "project_id": "xxxxx-xxxxx-xxxx",
+  "project_owner": "xxxxx",
+  "wordpress_site_url": null,
+  "php_version": "7.2",
+  "access_url": "xxxxxx.on.getshifter.io",
+  "last_launched": "2019-02-18T03:14:59+00:00",
+  "disk_usage": 4,
+  "deploy_type": "shifter_cdn",
+  "raw_url": "xxxxxx.cloudfront.net",
+  "create_time": "2019-01-18T06:21:31+00:00",
+  "automation": true
+ }
+]
+```
+
+#### Describe site
+
+```typescript
+const sites = await client.describe('site id')
+
+ {
+  "project_name": "test",
+  "stock_state": "inuse",
+  "project_id": "xxxxx-xxxxx-xxxx",
+  "project_owner": "xxxxx",
+  "wordpress_site_url": null,
+  "php_version": "7.2",
+  "access_url": "xxxxxx.on.getshifter.io",
+  "last_launched": "2019-02-18T03:14:59+00:00",
+  "disk_usage": 4,
+  "deploy_type": "shifter_cdn",
+  "raw_url": "xxxxxx.cloudfront.net",
+  "create_time": "2019-01-18T06:21:31+00:00",
+  "automation": true
+ }
+```
+
+#### Create new site
+
+```typescript
+const result = await client.create('my new site')
+{
+ "project_id": "xxx-xxxx-xxxx-xxxx",
+ "project_name": "my new site",
+ "shifter_cdn_url": "xxxx.cloudfront.net"
+}
+```
+
+#### Update site name
+
+```typescript
+await client.updateName(siteId, name)
+""
+```
+
+#### Enable / Disable auto deployment
+
+```typescript
+await client.enabledDeployAutomation(siteId)
+""
+
+await client.disabledDeployAutomation(siteId)
+""
+```
+#### Start WordPress container
+
+```typescript
+await client.startWordPress(siteId)
+{
+  "notification_id": "xxxxxxxxxxxxxxxxxxx"
+}
+
+await client.startWordPressAsEmergency(siteId)
+{
+  "notification_id": "xxxxxxxxxxxxxxxxxxx",
+  "emergency_password": "xxxxxxxxx"
+}
+```
+
+#### Get WordPress starting status
+
+```typescript
+const { notification_id } = await client.startWordPress(siteId)
+const status = await client.getWPSetupStatus(siteId, notification_id)
+"INITIALIZING"
+```
+
+#### Stop WordPress container
+
+```typescript
+await client.stopWordPress(siteId)
+""
+```
+#### Delete site
+
+```typescript
+await client.delete(siteId)
+""
+```
+### Organizations
 
 #### Initilize
 ```typescript
@@ -365,3 +512,6 @@ client.descibe()
      enable_subuser: 'true',
      export_artifact: 'true' } }
 ```
+
+## Tools
+- Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)

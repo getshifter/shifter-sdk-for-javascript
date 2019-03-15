@@ -103,7 +103,8 @@ export namespace Types {
     }
   }
   export namespace Sites {
-    export type StockState = 'inuse' | string
+    export type StockState = 'inuse' | 'ingenerate' | 'inservice' | 'starting' | 'stopping' | 'loading'
+    export type WpStartingStatus = 'INITIALIZING' | 'DEACTIVATE_PLUGINS' | 'INSTALLING_WORDPRESS' | 'REPLACEING_URLS' | 'CHANGE_PERMALINK_STRUCTURE' | 'COMPLETE' | 'ERROR_EXIT' | 'ERROR_WAIT' | string
     export type Item = {
       project_name: string
       stock_state: StockState
@@ -195,6 +196,24 @@ export namespace Api {
     }
     export namespace Detail {
       export type Response = Types.Sites.Item
+    }
+    export namespace Create {
+      export type Response = {
+        project_name: string
+        project_id: string
+        shifter_cdn_url: string
+        wordpress_site_url?: string
+      }
+    }
+    export namespace Start {
+      export type Response = {
+        notification_id: string
+      }
+      export type EmergencyResponse = {
+        notification_id: string
+        emergency_password: string
+      }
+      export type StartingStatusResponse = Types.Sites.WpStartingStatus
     }
   }
   export namespace Coupon {

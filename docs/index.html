@@ -65,6 +65,52 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="shifter-sdk-for-javascript">Shifter SDK for JavaScript</h1>
+				<h2 id="table-of-contents">Table of Contents</h2>
+				<ul>
+					<li><a href="#usage">Usage</a><ul>
+							<li><a href="#sign-in">Sign in</a><ul>
+									<li><a href="#basic-usage">Basic Usage</a></li>
+									<li><a href="#refresh-access-token">Refresh access token</a></li>
+								</ul>
+							</li>
+							<li><a href="#statistics">Statistics</a><ul>
+									<li><a href="#describe-statistics">Describe Statistics</a></li>
+									<li><a href="#describe-site-transfer-amount">Describe site transfer amount</a></li>
+								</ul>
+							</li>
+							<li><a href="#organization">Organization</a><ul>
+									<li><a href="#initilize">Initilize</a></li>
+									<li><a href="#create">Create</a></li>
+									<li><a href="#update">Update</a></li>
+									<li><a href="#list">List</a></li>
+									<li><a href="#describe">Describe</a></li>
+									<li><a href="#delete">Delete</a></li>
+									<li><a href="#activate-invited-member">Activate invited member</a></li>
+								</ul>
+							</li>
+							<li><a href="#organization-site">Organization Site</a><ul>
+									<li><a href="#initilize-1">Initilize</a></li>
+									<li><a href="#list-site-of-organization">List site of organization</a></li>
+									<li><a href="#get-site-of-organization">Get site of organization</a></li>
+									<li><a href="#add-site-to-organization">Add site to organization</a></li>
+									<li><a href="#remove-site-from-organization">Remove site from organization</a></li>
+								</ul>
+							</li>
+							<li><a href="#organization-members">Organization Members</a><ul>
+									<li><a href="#initilize-2">Initilize</a></li>
+									<li><a href="#list-site-of-organization-1">List site of organization</a></li>
+									<li><a href="#add-member-to-organization">Add member to organization</a></li>
+									<li><a href="#remove-members-from-organization">Remove members from organization</a></li>
+								</ul>
+							</li>
+							<li><a href="#status">Status</a><ul>
+									<li><a href="#initilize-3">Initilize</a></li>
+									<li><a href="#describe-status">Describe status</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
 				<h2 id="usage">Usage</h2>
 				<h3 id="sign-in">Sign in</h3>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
@@ -134,18 +180,99 @@ client.describe()
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.SiteTransfer({
   token: <span class="hljs-string">'YOUR_TOKEN'</span>
 })
-client.describe()
-  .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.describe(siteId)
+[
+ {
+   <span class="hljs-string">"transfer_gb"</span>: <span class="hljs-number">5</span>,
+   <span class="hljs-string">"track_month"</span>: <span class="hljs-number">201902</span>
+ }, {
+   <span class="hljs-string">"transfer_gb"</span>: <span class="hljs-number">10</span>,
+   <span class="hljs-string">"track_month"</span>: <span class="hljs-number">201903</span>
+ }
+]</code></pre>
+				<h3 id="sites">Sites</h3>
+				<h4 id="initilize">Initilize</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Sites } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Sites({
+  token: <span class="hljs-string">'ACCESS_TOKEN'</span>
+})</code></pre>
+				<h4 id="list-sites">List sites</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.list()
+[
+ {
+  <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"stock_state"</span>: <span class="hljs-string">"inuse"</span>,
+  <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxxxx-xxxxx-xxxx"</span>,
+  <span class="hljs-string">"project_owner"</span>: <span class="hljs-string">"xxxxx"</span>,
+  <span class="hljs-string">"wordpress_site_url"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">"php_version"</span>: <span class="hljs-string">"7.2"</span>,
+  <span class="hljs-string">"access_url"</span>: <span class="hljs-string">"xxxxxx.on.getshifter.io"</span>,
+  <span class="hljs-string">"last_launched"</span>: <span class="hljs-string">"2019-02-18T03:14:59+00:00"</span>,
+  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-string">"deploy_type"</span>: <span class="hljs-string">"shifter_cdn"</span>,
+  <span class="hljs-string">"raw_url"</span>: <span class="hljs-string">"xxxxxx.cloudfront.net"</span>,
+  <span class="hljs-string">"create_time"</span>: <span class="hljs-string">"2019-01-18T06:21:31+00:00"</span>,
+  <span class="hljs-string">"automation"</span>: <span class="hljs-literal">true</span>
+ }
+]</code></pre>
+				<h4 id="describe-site">Describe site</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.describe(<span class="hljs-string">'site id'</span>)
+
+ {
+  <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"stock_state"</span>: <span class="hljs-string">"inuse"</span>,
+  <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxxxx-xxxxx-xxxx"</span>,
+  <span class="hljs-string">"project_owner"</span>: <span class="hljs-string">"xxxxx"</span>,
+  <span class="hljs-string">"wordpress_site_url"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">"php_version"</span>: <span class="hljs-string">"7.2"</span>,
+  <span class="hljs-string">"access_url"</span>: <span class="hljs-string">"xxxxxx.on.getshifter.io"</span>,
+  <span class="hljs-string">"last_launched"</span>: <span class="hljs-string">"2019-02-18T03:14:59+00:00"</span>,
+  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-string">"deploy_type"</span>: <span class="hljs-string">"shifter_cdn"</span>,
+  <span class="hljs-string">"raw_url"</span>: <span class="hljs-string">"xxxxxx.cloudfront.net"</span>,
+  <span class="hljs-string">"create_time"</span>: <span class="hljs-string">"2019-01-18T06:21:31+00:00"</span>,
+  <span class="hljs-string">"automation"</span>: <span class="hljs-literal">true</span>
+ }</code></pre>
+				<h4 id="create-new-site">Create new site</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.create(<span class="hljs-string">'my new site'</span>)
 {
-  updated_time: <span class="hljs-string">'2019-03-13T23:20:42.588404'</span>,
-  projects_count: <span class="hljs-number">10</span>,
-  disk_total: <span class="hljs-number">10000</span>,
-  transfer_total: <span class="hljs-number">0</span>,
-  user_name: <span class="hljs-string">'hello'</span>,
-  track_month: <span class="hljs-number">201903</span>
+ <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxx-xxxx-xxxx-xxxx"</span>,
+ <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"my new site"</span>,
+ <span class="hljs-string">"shifter_cdn_url"</span>: <span class="hljs-string">"xxxx.cloudfront.net"</span>
 }</code></pre>
-				<h3 id="organization">Organization</h3>
+				<h4 id="update-site-name">Update site name</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.updateName(siteId, name)
+<span class="hljs-string">""</span></code></pre>
+				<h4 id="enable-disable-auto-deployment">Enable / Disable auto deployment</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.enabledDeployAutomation(siteId)
+<span class="hljs-string">""</span>
+
+<span class="hljs-keyword">await</span> client.disabledDeployAutomation(siteId)
+<span class="hljs-string">""</span></code></pre>
+				<h4 id="start-wordpress-container">Start WordPress container</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.startWordPress(siteId)
+{
+  <span class="hljs-string">"notification_id"</span>: <span class="hljs-string">"xxxxxxxxxxxxxxxxxxx"</span>
+}
+
+<span class="hljs-keyword">await</span> client.startWordPressAsEmergency(siteId)
+{
+  <span class="hljs-string">"notification_id"</span>: <span class="hljs-string">"xxxxxxxxxxxxxxxxxxx"</span>,
+  <span class="hljs-string">"emergency_password"</span>: <span class="hljs-string">"xxxxxxxxx"</span>
+}</code></pre>
+				<h4 id="get-wordpress-starting-status">Get WordPress starting status</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> { notification_id } = <span class="hljs-keyword">await</span> client.startWordPress(siteId)
+<span class="hljs-keyword">const</span> status = <span class="hljs-keyword">await</span> client.getWPSetupStatus(siteId, notification_id)
+<span class="hljs-string">"INITIALIZING"</span></code></pre>
+				<h4 id="stop-wordpress-container">Stop WordPress container</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.stopWordPress(siteId)
+<span class="hljs-string">""</span></code></pre>
+				<h4 id="delete-site">Delete site</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId)
+<span class="hljs-string">""</span></code></pre>
+				<h3 id="organizations">Organizations</h3>
 				<h4 id="initilize">Initilize</h4>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
 
@@ -330,6 +457,10 @@ ok</code></pre>
      backup: <span class="hljs-string">'365'</span>,
      enable_subuser: <span class="hljs-string">'true'</span>,
      export_artifact: <span class="hljs-string">'true'</span> } }</code></pre>
+				<h2 id="tools">Tools</h2>
+				<ul>
+					<li>Created by <a href="https://github.com/ekalinin/github-markdown-toc">gh-md-toc</a></li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
