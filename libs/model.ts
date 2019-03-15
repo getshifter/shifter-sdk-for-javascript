@@ -139,6 +139,15 @@ export namespace Types {
       valid: boolean
     }
   }
+  export namespace Statistics {
+    export namespace SiteTransferAmount {
+      export type Item = {
+        transfer_gb: number
+        track_month: number
+      }
+      export type Items = Item[]
+    }
+  }
 }
 
 export namespace Api {
@@ -180,6 +189,14 @@ export namespace Api {
       }
     }
   }
+  export namespace Sites {
+    export namespace List {
+      export type Response = Types.Sites.ListItems
+    }
+    export namespace Detail {
+      export type Response = Types.Sites.Item
+    }
+  }
   export namespace Coupon {
     export type Detail = {
       statusCode: number
@@ -194,6 +211,11 @@ export namespace Api {
       transfer_total: number
       user_name: string
       track_month: number
+    }
+    export namespace SiteTransfer {
+      export namespace Detail {
+        export type Response = Types.Statistics.SiteTransferAmount.Items
+      }
     }
   }
 

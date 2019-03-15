@@ -60,7 +60,7 @@ client.login('USERNAME', 'PASSWORD')
 
 ### Statistics
 
-#### Initilize
+#### Describe Statistics
 
 ```typescript
 import { Statistics } from 'shifter-sdk'
@@ -68,11 +68,6 @@ import { Statistics } from 'shifter-sdk'
 const client = new Statistics.UsageSummary({
   token: 'YOUR_TOKEN'
 })
-```
-
-#### Describe Statistics
-
-```typescript
 client.describe()
   .then(result => console.log(result))
 
@@ -85,6 +80,28 @@ client.describe()
   track_month: 201903
 }
 ```
+
+#### Describe site transfer amount
+
+```typescript
+import { Statistics } from 'shifter-sdk'
+
+const client = new Statistics.SiteTransfer({
+  token: 'YOUR_TOKEN'
+})
+
+const result = await client.describe(siteId)
+[
+ {
+   "transfer_gb": 5,
+   "track_month": 201902
+ }, {
+   "transfer_gb": 10,
+   "track_month": 201903
+ }
+]
+```
+
 
 
 ### Organization

@@ -111,14 +111,30 @@ client.login(<span class="hljs-string">'USERNAME'</span>, <span class="hljs-stri
   AccessToken: <span class="hljs-built_in">string</span>
 }</code></pre>
 				<h3 id="statistics">Statistics</h3>
-				<h4 id="initilize">Initilize</h4>
+				<h4 id="describe-statistics">Describe Statistics</h4>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.UsageSummary({
   token: <span class="hljs-string">'YOUR_TOKEN'</span>
-})</code></pre>
-				<h4 id="describe-statistics">Describe Statistics</h4>
-				<pre><code class="language-typescript">client.describe()
+})
+client.describe()
+  .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
+
+{
+  updated_time: <span class="hljs-string">'2019-03-13T23:20:42.588404'</span>,
+  projects_count: <span class="hljs-number">10</span>,
+  disk_total: <span class="hljs-number">10000</span>,
+  transfer_total: <span class="hljs-number">0</span>,
+  user_name: <span class="hljs-string">'hello'</span>,
+  track_month: <span class="hljs-number">201903</span>
+}</code></pre>
+				<h4 id="describe-site-transfer-amount">Describe site transfer amount</h4>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.SiteTransfer({
+  token: <span class="hljs-string">'YOUR_TOKEN'</span>
+})
+client.describe()
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 {

@@ -69,6 +69,18 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Account usage summary</p>
+					</div>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.UsageSummary({
+  token: <span class="hljs-string">'YOUR_TOKEN'</span>
+})</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -121,7 +133,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_helpers_client_.client.html">Client</a>.<a href="_helpers_client_.client.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/19cf51a/libs/helpers/client.ts#L17">helpers/client.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/e853a8b/libs/helpers/client.ts#L17">helpers/client.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;statistics/usage_summary&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/19cf51a/libs/statistics/usageSummary.ts#L8">statistics/usageSummary.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/e853a8b/libs/statistics/usageSummary.ts#L19">statistics/usageSummary.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;v1&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/19cf51a/libs/statistics/usageSummary.ts#L7">statistics/usageSummary.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/e853a8b/libs/statistics/usageSummary.ts#L18">statistics/usageSummary.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,9 +185,22 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/19cf51a/libs/statistics/usageSummary.ts#L9">statistics/usageSummary.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/e853a8b/libs/statistics/usageSummary.ts#L33">statistics/usageSummary.ts:33</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Describe account usage</p>
+									<pre><code class="language-typescript">{
+  updated_time: <span class="hljs-string">'2019-03-13T23:20:42.588404'</span>,
+  projects_count: <span class="hljs-number">10</span>,
+  disk_total: <span class="hljs-number">10000</span>,
+  transfer_total: <span class="hljs-number">0</span>,
+  user_name: <span class="hljs-string">'hello'</span>,
+  track_month: <span class="hljs-number">201903</span>
+}</code></pre>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_model_.api.statistics.html#usagesummary" class="tsd-signature-type">UsageSummary</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>

@@ -6,7 +6,40 @@ import {
 } from '../model'
 
 
+/**
+ * Organization management Class
+ * 
+ * ```typescript
+ * import { Organizations } from 'shifter-sdk'
+ * 
+ * const client = new Organizations.Foundation({
+ *   token: 'ACCESS_TOKEN'
+ * })
+ * ```
+ */
 class Organization extends OrganizationClient {
+  /**
+   * List organizations
+   * 
+   * ```typescript
+   * const organizations = await client.list()
+   * [
+   *  {
+   *    org_id: 'xxxxx-xxxx-xxxx-xxxx',
+   *    org_name: 'xxxxx',
+   *    org_owner: 'xxxxxxx',
+   *    org_website: '',
+   *    phone_number: '',
+   *    org_country: '',
+   *    org_state: '',
+   *    org_twitter: '',
+   *    org_size: '',
+   *    projects: [],
+   *    members: []
+   *  }
+   * ]
+   * ```
+   */
   async list(): Promise<Api.Organizations.List> {
     const { data } = await this.get()
     return data
