@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsc",
     "test": "jest",
     "lint": "eslint 'libs/**/*.{ts,tsx}'",
