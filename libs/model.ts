@@ -160,6 +160,12 @@ export namespace Types {
       export type Items = Item[]
     }
   }
+  export namespace Webhook {
+    export namespace Site {
+      export type Method = 'post'
+      export type EventType = 'Webhook:Artifact:Created'
+    }
+  }
 }
 
 export namespace Api {
@@ -174,6 +180,57 @@ export namespace Api {
     export type loginResult = {
       AccessToken: string,
       RefreshToken: string
+    }
+  }
+  export namespace Webhook {
+    export namespace Site {
+      export type Method = Types.Webhook.Site.Method
+      export type EventType = Types.Webhook.Site.EventType
+      export type Headers = {
+        [key: string]: string
+      } | {}
+      export type Item = {
+        hook_event: string
+        url: string
+        enabled: boolean
+        headers: Headers
+        method: Method
+      }
+      export namespace Resigteration {
+        export type RequestItem = {
+          hook_event: EventType
+          url: string
+          enabled: boolean
+          headers: Headers
+          method: Method
+        }
+        export type Request = RequestItem[]
+        export type ResponseItem = Item
+        export type Response = ResponseItem[]
+      }
+      export namespace Update {
+        export type RequestItem = {
+          hook_event: string
+          url: string
+          enabled: boolean
+          headers: Headers
+          method: Method
+        }
+        export type Request = RequestItem[]
+        export type ResponseItem = Item
+        export type Response = ResponseItem[]
+      }
+      export namespace Delete {
+        export type RequestItem = {
+          hook_event: string
+        }
+        export type Request = RequestItem[]
+        export type Response = null
+      }
+      export namespace Lists {
+        export type ResponseItem = Item
+        export type Response = ResponseItem[]
+      }
     }
   }
 

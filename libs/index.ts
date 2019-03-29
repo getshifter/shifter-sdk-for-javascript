@@ -7,9 +7,11 @@ import _Organizations from './organizations/index'
 import _Statistics from './statistics'
 import _Sites from './sites'
 import _Artifacts from './artifacts'
+import _Webhooks from './webhooks'
 // helper
 import _ConfigFactory from './helpers/configFactory'
 
+export const ConfigFactory = _ConfigFactory
 export const Status = _Status
 export const Auth = _Auth
 export const Counpon = _Counpon
@@ -19,7 +21,7 @@ export const Organizations = _Organizations
 export const Statistics = _Statistics
 export const Sites = _Sites
 export const Artifacts = _Artifacts
-export const ConfigFactory = _ConfigFactory
+export const Webhooks = _Webhooks
 
 export default {
   Status,
@@ -32,4 +34,5 @@ export default {
   Statistics,
   Sites,
   Artifacts,
+  Webhooks,
 }
