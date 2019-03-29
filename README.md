@@ -607,9 +607,9 @@ ok
 #### Initilize
 
 ```typescript
-import { Organizations } from 'shifter-sdk'
+import { Status } from 'shifter-sdk'
 
-const client = new Organizations.Foundation({
+const client = new Status({
   token: 'YOUR_TOKEN'
 })
 ```
@@ -638,4 +638,87 @@ client.descibe()
      backup: '365',
      enable_subuser: 'true',
      export_artifact: 'true' } }
+```
+
+
+### Webhooks(Site)
+
+
+#### Initilize
+
+```typescript
+import { Webhooks } from 'shifter-sdk'
+
+const client = new Webhooks.Site({
+  token: 'YOUR_TOKEN'
+})
+```
+
+#### Add new Webhook
+
+```typescript
+const result = await client.create(siteId, [{
+  hook_event: 'Webhook:Artifact:Created',
+  url: 'https://hoge.example.com',
+  enabled: false,
+  headers: {},
+  method: 'post'
+}])
+[
+  {
+    "enabled": false,
+    "hook_event": "Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed",
+    "webhook_url": "https://hoge.example.com",
+    "headers": {},
+    "method": "post",
+    "site_id": "bfd1fbde-8f01-11e8-aa52-9ad4a0753b52"
+  }
+]
+```
+
+#### Update Webhook
+
+```typescript
+const result = await client.update(siteId, [{
+  hook_event: 'Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed',
+  url: 'https://hoge.example.com',
+  enabled: true,
+  headers: { 'x-test': 'hoge' },
+  method: 'post'
+}])
+[
+  {
+    "enabled": true,
+    "hook_event": "Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed",
+    "webhook_url": "https://hoge.example.com",
+    "headers": { 'x-test': 'hoge' },
+    "method": "post",
+    "site_id": "bfd1fbde-8f01-11e8-aa52-9ad4a0753b52"
+  }
+]
+```
+
+#### List Webhook
+
+```typescript
+const result = await client.list(siteId)
+[
+  {
+    "enabled": false,
+    "hook_event": "Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed",
+    "webhook_url": "https://hoge.example.com",
+    "headers": {},
+    "method": "post",
+    "site_id": "bfd1fbde-8f01-11e8-aa52-9ad4a0753b52"
+  }
+]
+```
+
+#### Delete Webhook
+
+```typescript
+const result = await client.delete(siteId, [{
+  hook_event: 'Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed'
+}])
+""
 ```
