@@ -6,7 +6,7 @@ import Webhook = Api.Webhook.Site
 
 export default class Site extends Client {
   version = 'v2'
-  namespace = 'webhooks' // 'webhooks/site'になるかも
+  namespace = 'webhooks/site'
   /**
    * List registered webhooks
    * @param siteId site id
