@@ -4,7 +4,9 @@ node_modules/
 typeGen.js
 run.js
 examples/
+examples*/
 dist/
 .DS_Store
 bin/
 .rpt2_cache/
+umd/

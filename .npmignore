@@ -11,5 +11,7 @@ __tests__/
 libs/
 .idea/
 examples/
+examples*/
 bin/
 .rpt2_cache/
+rollup.config.js
