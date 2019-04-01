@@ -7,3 +7,4 @@ examples/
 dist/
 .DS_Store
 bin/
+.rpt2_cache/

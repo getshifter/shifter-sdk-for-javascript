@@ -12,3 +12,4 @@ libs/
 .idea/
 examples/
 bin/
+.rpt2_cache/
