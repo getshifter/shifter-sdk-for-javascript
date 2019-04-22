@@ -1,7 +1,7 @@
 {
-  "name": "shifter-sdk",
+  "name": "@shifter/node",
   "version": "0.2.1",
-  "description": "",
+  "description": "Shifter API SDK for Node.js",
   "main": "umd/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
@@ -54,5 +54,8 @@
       "**/__tests__/**/*.+(ts|tsx|js)",
       "**/__tests__/*/*.+(ts|tsx|js)"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
