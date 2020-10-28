@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>shifter-sdk</title>
-	<meta name="description" content="">
+	<title>@shifter/node</title>
+	<meta name="description" content="Documentation for @shifter/node">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">shifter-sdk</a>
+					<a href="index.html" class="title">@shifter/node</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> shifter-sdk</h1>
+			<h1>@shifter/node</h1>
 		</div>
 	</div>
 </header>
@@ -64,8 +64,12 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="shifter-sdk-for-javascript">Shifter SDK for JavaScript</h1>
-				<h2 id="table-of-contents">Table of Contents</h2>
+				<a href="#shifter-sdk-for-javascript" id="shifter-sdk-for-javascript" style="color: inherit; text-decoration: none;">
+					<h1>Shifter SDK for JavaScript</h1>
+				</a>
+				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+					<h2>Table of Contents</h2>
+				</a>
 				<p>Created by <a href="https://github.com/ekalinin/github-markdown-toc">gh-md-toc</a></p>
 				<ul>
 					<li><a href="#usage">Usage</a><ul>
@@ -138,412 +142,581 @@
 						</ul>
 					</li>
 				</ul>
-				<h2 id="usage">Usage</h2>
-				<h3 id="sign-in">Sign in</h3>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#sign-in" id="sign-in" style="color: inherit; text-decoration: none;">
+					<h3>Sign in</h3>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;shifter-sdk&#x27;</span>
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Auth()
-client.login(<span class="hljs-string">'USERNAME'</span>, <span class="hljs-string">'PASSWORD'</span>)
+client.login(<span class="hljs-string">&#x27;USERNAME&#x27;</span>, <span class="hljs-string">&#x27;PASSWORD&#x27;</span>)
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 {
-  AccessToken: <span class="hljs-built_in">string</span>,
-  RefreshToken: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">AccessToken</span>: <span class="hljs-built_in">string</span>,
+  <span class="hljs-attr">RefreshToken</span>: <span class="hljs-built_in">string</span>
 }</code></pre>
-				<h4 id="basic-usage">Basic Usage</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+				<a href="#basic-usage" id="basic-usage" style="color: inherit; text-decoration: none;">
+					<h4>Basic Usage</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;shifter-sdk&#x27;</span>
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Auth()
-client.login(<span class="hljs-string">'USERNAME'</span>, <span class="hljs-string">'PASSWORD'</span>)
+client.login(<span class="hljs-string">&#x27;USERNAME&#x27;</span>, <span class="hljs-string">&#x27;PASSWORD&#x27;</span>)
   .then(<span class="hljs-function">(<span class="hljs-params">{ AccessToken }</span>) =&gt;</span> {
     <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.UsageSummary({
-      token: AccessToken
+      <span class="hljs-attr">token</span>: AccessToken
     })
     <span class="hljs-keyword">return</span> client.describe()
   })
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 {
-  updated_time: <span class="hljs-string">'2019-03-13T23:20:42.588404'</span>,
-  projects_count: <span class="hljs-number">10</span>,
-  disk_total: <span class="hljs-number">10000</span>,
-  transfer_total: <span class="hljs-number">0</span>,
-  user_name: <span class="hljs-string">'hello'</span>,
-  track_month: <span class="hljs-number">201903</span>
+  <span class="hljs-attr">updated_time</span>: <span class="hljs-string">&#x27;2019-03-13T23:20:42.588404&#x27;</span>,
+  <span class="hljs-attr">projects_count</span>: <span class="hljs-number">10</span>,
+  <span class="hljs-attr">disk_total</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">transfer_total</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">user_name</span>: <span class="hljs-string">&#x27;hello&#x27;</span>,
+  <span class="hljs-attr">track_month</span>: <span class="hljs-number">201903</span>
 }</code></pre>
-				<h4 id="refresh-access-token">Refresh access token</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+				<a href="#refresh-access-token" id="refresh-access-token" style="color: inherit; text-decoration: none;">
+					<h4>Refresh access token</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Auth, Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;shifter-sdk&#x27;</span>
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Auth()
-client.login(<span class="hljs-string">'USERNAME'</span>, <span class="hljs-string">'PASSWORD'</span>)
+client.login(<span class="hljs-string">&#x27;USERNAME&#x27;</span>, <span class="hljs-string">&#x27;PASSWORD&#x27;</span>)
   .then(<span class="hljs-function">(<span class="hljs-params">{ RefreshToken }</span>) =&gt;</span> {
     <span class="hljs-keyword">return</span> client.refresh(RefreshToken))
   })
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 {
-  AccessToken: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">AccessToken</span>: <span class="hljs-built_in">string</span>
 }</code></pre>
-				<h3 id="statistics">Statistics</h3>
-				<h4 id="describe-statistics">Describe Statistics</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+				<a href="#statistics" id="statistics" style="color: inherit; text-decoration: none;">
+					<h3>Statistics</h3>
+				</a>
+				<a href="#describe-statistics" id="describe-statistics" style="color: inherit; text-decoration: none;">
+					<h4>Describe Statistics</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;shifter-sdk&#x27;</span>
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.UsageSummary({
-  token: <span class="hljs-string">'YOUR_TOKEN'</span>
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&#x27;YOUR_TOKEN&#x27;</span>
 })
 client.describe()
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 {
-  updated_time: <span class="hljs-string">'2019-03-13T23:20:42.588404'</span>,
-  projects_count: <span class="hljs-number">10</span>,
-  disk_total: <span class="hljs-number">10000</span>,
-  transfer_total: <span class="hljs-number">0</span>,
-  user_name: <span class="hljs-string">'hello'</span>,
-  track_month: <span class="hljs-number">201903</span>
+  <span class="hljs-attr">updated_time</span>: <span class="hljs-string">&#x27;2019-03-13T23:20:42.588404&#x27;</span>,
+  <span class="hljs-attr">projects_count</span>: <span class="hljs-number">10</span>,
+  <span class="hljs-attr">disk_total</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">transfer_total</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">user_name</span>: <span class="hljs-string">&#x27;hello&#x27;</span>,
+  <span class="hljs-attr">track_month</span>: <span class="hljs-number">201903</span>
 }</code></pre>
-				<h4 id="describe-site-transfer-amount">Describe site transfer amount</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+				<a href="#describe-site-transfer-amount" id="describe-site-transfer-amount" style="color: inherit; text-decoration: none;">
+					<h4>Describe site transfer amount</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Statistics } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Statistics.SiteTransfer({
-  token: <span class="hljs-string">'YOUR_TOKEN'</span>
-})
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;YOUR_TOKEN&quot;</span>,
+});
 
-<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.describe(siteId)
-[
- {
-   <span class="hljs-string">"transfer_gb"</span>: <span class="hljs-number">5</span>,
-   <span class="hljs-string">"track_month"</span>: <span class="hljs-number">201902</span>
- }, {
-   <span class="hljs-string">"transfer_gb"</span>: <span class="hljs-number">10</span>,
-   <span class="hljs-string">"track_month"</span>: <span class="hljs-number">201903</span>
- }
-]</code></pre>
-				<h3 id="sites">Sites</h3>
-				<h4 id="initilize">Initilize</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Sites } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.describe(siteId)[
+  ({
+    <span class="hljs-attr">transfer_gb</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">track_month</span>: <span class="hljs-number">201902</span>,
+  },
+  {
+    <span class="hljs-attr">transfer_gb</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">track_month</span>: <span class="hljs-number">201903</span>,
+  })
+];</code></pre>
+				<a href="#sites" id="sites" style="color: inherit; text-decoration: none;">
+					<h3>Sites</h3>
+				</a>
+				<a href="#initilize" id="initilize" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Sites } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Sites({
-  token: <span class="hljs-string">'ACCESS_TOKEN'</span>
-})</code></pre>
-				<h4 id="list-sites">List sites</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.list()
-[
- {
-  <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"test"</span>,
-  <span class="hljs-string">"stock_state"</span>: <span class="hljs-string">"inuse"</span>,
-  <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxxxx-xxxxx-xxxx"</span>,
-  <span class="hljs-string">"project_owner"</span>: <span class="hljs-string">"xxxxx"</span>,
-  <span class="hljs-string">"wordpress_site_url"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-string">"php_version"</span>: <span class="hljs-string">"7.2"</span>,
-  <span class="hljs-string">"access_url"</span>: <span class="hljs-string">"xxxxxx.on.getshifter.io"</span>,
-  <span class="hljs-string">"last_launched"</span>: <span class="hljs-string">"2019-02-18T03:14:59+00:00"</span>,
-  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">4</span>,
-  <span class="hljs-string">"deploy_type"</span>: <span class="hljs-string">"shifter_cdn"</span>,
-  <span class="hljs-string">"raw_url"</span>: <span class="hljs-string">"xxxxxx.cloudfront.net"</span>,
-  <span class="hljs-string">"create_time"</span>: <span class="hljs-string">"2019-01-18T06:21:31+00:00"</span>,
-  <span class="hljs-string">"automation"</span>: <span class="hljs-literal">true</span>
- }
-]</code></pre>
-				<h4 id="describe-site">Describe site</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.describe(<span class="hljs-string">'site id'</span>)
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;ACCESS_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#list-sites" id="list-sites" style="color: inherit; text-decoration: none;">
+					<h4>List sites</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.list()[
+  {
+    <span class="hljs-attr">project_name</span>: <span class="hljs-string">&quot;test&quot;</span>,
+    <span class="hljs-attr">stock_state</span>: <span class="hljs-string">&quot;inuse&quot;</span>,
+    <span class="hljs-attr">project_id</span>: <span class="hljs-string">&quot;xxxxx-xxxxx-xxxx&quot;</span>,
+    <span class="hljs-attr">project_owner</span>: <span class="hljs-string">&quot;xxxxx&quot;</span>,
+    <span class="hljs-attr">wordpress_site_url</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">php_version</span>: <span class="hljs-string">&quot;7.2&quot;</span>,
+    <span class="hljs-attr">access_url</span>: <span class="hljs-string">&quot;xxxxxx.on.getshifter.io&quot;</span>,
+    <span class="hljs-attr">last_launched</span>: <span class="hljs-string">&quot;2019-02-18T03:14:59+00:00&quot;</span>,
+    <span class="hljs-attr">disk_usage</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-attr">deploy_type</span>: <span class="hljs-string">&quot;shifter_cdn&quot;</span>,
+    <span class="hljs-attr">raw_url</span>: <span class="hljs-string">&quot;xxxxxx.cloudfront.net&quot;</span>,
+    <span class="hljs-attr">create_time</span>: <span class="hljs-string">&quot;2019-01-18T06:21:31+00:00&quot;</span>,
+    <span class="hljs-attr">automation</span>: <span class="hljs-literal">true</span>,
+  }
+];</code></pre>
+				<a href="#describe-site" id="describe-site" style="color: inherit; text-decoration: none;">
+					<h4>Describe site</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.describe(<span class="hljs-string">&#x27;site id&#x27;</span>)
 
  {
-  <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"test"</span>,
-  <span class="hljs-string">"stock_state"</span>: <span class="hljs-string">"inuse"</span>,
-  <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxxxx-xxxxx-xxxx"</span>,
-  <span class="hljs-string">"project_owner"</span>: <span class="hljs-string">"xxxxx"</span>,
-  <span class="hljs-string">"wordpress_site_url"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-string">"php_version"</span>: <span class="hljs-string">"7.2"</span>,
-  <span class="hljs-string">"access_url"</span>: <span class="hljs-string">"xxxxxx.on.getshifter.io"</span>,
-  <span class="hljs-string">"last_launched"</span>: <span class="hljs-string">"2019-02-18T03:14:59+00:00"</span>,
-  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">4</span>,
-  <span class="hljs-string">"deploy_type"</span>: <span class="hljs-string">"shifter_cdn"</span>,
-  <span class="hljs-string">"raw_url"</span>: <span class="hljs-string">"xxxxxx.cloudfront.net"</span>,
-  <span class="hljs-string">"create_time"</span>: <span class="hljs-string">"2019-01-18T06:21:31+00:00"</span>,
-  <span class="hljs-string">"automation"</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-string">&quot;project_name&quot;</span>: <span class="hljs-string">&quot;test&quot;</span>,
+  <span class="hljs-string">&quot;stock_state&quot;</span>: <span class="hljs-string">&quot;inuse&quot;</span>,
+  <span class="hljs-string">&quot;project_id&quot;</span>: <span class="hljs-string">&quot;xxxxx-xxxxx-xxxx&quot;</span>,
+  <span class="hljs-string">&quot;project_owner&quot;</span>: <span class="hljs-string">&quot;xxxxx&quot;</span>,
+  <span class="hljs-string">&quot;wordpress_site_url&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;php_version&quot;</span>: <span class="hljs-string">&quot;7.2&quot;</span>,
+  <span class="hljs-string">&quot;access_url&quot;</span>: <span class="hljs-string">&quot;xxxxxx.on.getshifter.io&quot;</span>,
+  <span class="hljs-string">&quot;last_launched&quot;</span>: <span class="hljs-string">&quot;2019-02-18T03:14:59+00:00&quot;</span>,
+  <span class="hljs-string">&quot;disk_usage&quot;</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-string">&quot;deploy_type&quot;</span>: <span class="hljs-string">&quot;shifter_cdn&quot;</span>,
+  <span class="hljs-string">&quot;raw_url&quot;</span>: <span class="hljs-string">&quot;xxxxxx.cloudfront.net&quot;</span>,
+  <span class="hljs-string">&quot;create_time&quot;</span>: <span class="hljs-string">&quot;2019-01-18T06:21:31+00:00&quot;</span>,
+  <span class="hljs-string">&quot;automation&quot;</span>: <span class="hljs-literal">true</span>
  }</code></pre>
-				<h4 id="create-new-site">Create new site</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.create(<span class="hljs-string">'my new site'</span>)
+				<a href="#create-new-site" id="create-new-site" style="color: inherit; text-decoration: none;">
+					<h4>Create new site</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.create(<span class="hljs-string">&#x27;my new site&#x27;</span>)
 {
- <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxx-xxxx-xxxx-xxxx"</span>,
- <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"my new site"</span>,
- <span class="hljs-string">"shifter_cdn_url"</span>: <span class="hljs-string">"xxxx.cloudfront.net"</span>
+ <span class="hljs-string">&quot;project_id&quot;</span>: <span class="hljs-string">&quot;xxx-xxxx-xxxx-xxxx&quot;</span>,
+ <span class="hljs-string">&quot;project_name&quot;</span>: <span class="hljs-string">&quot;my new site&quot;</span>,
+ <span class="hljs-string">&quot;shifter_cdn_url&quot;</span>: <span class="hljs-string">&quot;xxxx.cloudfront.net&quot;</span>
 }</code></pre>
-				<h4 id="update-site-name">Update site name</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.updateName(siteId, name)
-<span class="hljs-string">""</span></code></pre>
-				<h4 id="enable-disable-auto-deployment">Enable / Disable auto deployment</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.enabledDeployAutomation(siteId)
-<span class="hljs-string">""</span>
+				<a href="#update-site-name" id="update-site-name" style="color: inherit; text-decoration: none;">
+					<h4>Update site name</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.updateName(siteId, name);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#enable--disable-auto-deployment" id="enable--disable-auto-deployment" style="color: inherit; text-decoration: none;">
+					<h4>Enable / Disable auto deployment</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.enabledDeployAutomation(siteId);
+(<span class="hljs-string">&quot;&quot;</span>);
 
-<span class="hljs-keyword">await</span> client.disabledDeployAutomation(siteId)
-<span class="hljs-string">""</span></code></pre>
-				<h4 id="start-wordpress-container">Start WordPress container</h4>
+<span class="hljs-keyword">await</span> client.disabledDeployAutomation(siteId);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#start-wordpress-container" id="start-wordpress-container" style="color: inherit; text-decoration: none;">
+					<h4>Start WordPress container</h4>
+				</a>
 				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.startWordPress(siteId)
 {
-  <span class="hljs-string">"notification_id"</span>: <span class="hljs-string">"xxxxxxxxxxxxxxxxxxx"</span>
+  <span class="hljs-string">&quot;notification_id&quot;</span>: <span class="hljs-string">&quot;xxxxxxxxxxxxxxxxxxx&quot;</span>
 }
 
 <span class="hljs-keyword">await</span> client.startWordPressAsEmergency(siteId)
 {
-  <span class="hljs-string">"notification_id"</span>: <span class="hljs-string">"xxxxxxxxxxxxxxxxxxx"</span>,
-  <span class="hljs-string">"emergency_password"</span>: <span class="hljs-string">"xxxxxxxxx"</span>
+  <span class="hljs-string">&quot;notification_id&quot;</span>: <span class="hljs-string">&quot;xxxxxxxxxxxxxxxxxxx&quot;</span>,
+  <span class="hljs-string">&quot;emergency_password&quot;</span>: <span class="hljs-string">&quot;xxxxxxxxx&quot;</span>
 }</code></pre>
-				<h4 id="get-wordpress-starting-status">Get WordPress starting status</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> { notification_id } = <span class="hljs-keyword">await</span> client.startWordPress(siteId)
-<span class="hljs-keyword">const</span> status = <span class="hljs-keyword">await</span> client.getWPSetupStatus(siteId, notification_id)
-<span class="hljs-string">"INITIALIZING"</span></code></pre>
-				<h4 id="stop-wordpress-container">Stop WordPress container</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.stopWordPress(siteId)
-<span class="hljs-string">""</span></code></pre>
-				<h4 id="delete-site">Delete site</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId)
-<span class="hljs-string">""</span></code></pre>
-				<h3 id="artifacts">Artifacts</h3>
-				<h4 id="initilize">Initilize</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Artifacts } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+				<a href="#get-wordpress-starting-status" id="get-wordpress-starting-status" style="color: inherit; text-decoration: none;">
+					<h4>Get WordPress starting status</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> { notification_id } = <span class="hljs-keyword">await</span> client.startWordPress(siteId);
+<span class="hljs-keyword">const</span> status = <span class="hljs-keyword">await</span> client.getWPSetupStatus(siteId, notification_id);
+(<span class="hljs-string">&quot;INITIALIZING&quot;</span>);</code></pre>
+				<a href="#stop-wordpress-container" id="stop-wordpress-container" style="color: inherit; text-decoration: none;">
+					<h4>Stop WordPress container</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.stopWordPress(siteId);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#delete-site" id="delete-site" style="color: inherit; text-decoration: none;">
+					<h4>Delete site</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#artifacts" id="artifacts" style="color: inherit; text-decoration: none;">
+					<h3>Artifacts</h3>
+				</a>
+				<a href="#initilize-1" id="initilize-1" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Artifacts } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Artifacts({
-  token: <span class="hljs-string">'ACCESS_TOKEN'</span>
-})</code></pre>
-				<h4 id="generate">Generate</h4>
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;ACCESS_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#generate" id="generate" style="color: inherit; text-decoration: none;">
+					<h4>Generate</h4>
+				</a>
 				<p>Start to generate a new artifact</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.generate(siteId)
 {
- <span class="hljs-string">"project_id"</span>:<span class="hljs-string">"xxxx-xxxxx-xxxxx-xxxx"</span>,
- <span class="hljs-string">"artifact_id"</span>:<span class="hljs-string">"xxxx-xxxxx-xxxxx-xxxx"</span>
+ <span class="hljs-string">&quot;project_id&quot;</span>:<span class="hljs-string">&quot;xxxx-xxxxx-xxxxx-xxxx&quot;</span>,
+ <span class="hljs-string">&quot;artifact_id&quot;</span>:<span class="hljs-string">&quot;xxxx-xxxxx-xxxxx-xxxx&quot;</span>
 }</code></pre>
-				<h4 id="get-download-url">Get download URL</h4>
+				<a href="#get-download-url" id="get-download-url" style="color: inherit; text-decoration: none;">
+					<h4>Get download URL</h4>
+				</a>
 				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.getDownloadURL(siteId, artifactId)
 {
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://xxxxx"</span>
+  <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://xxxxx&quot;</span>
 }</code></pre>
-				<h4 id="get-generating-progress">Get generating progress</h4>
+				<a href="#get-generating-progress" id="get-generating-progress" style="color: inherit; text-decoration: none;">
+					<h4>Get generating progress</h4>
+				</a>
 				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.getGeneratingProcess(siteId)
 
 {
-  <span class="hljs-string">"percent"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-string">"sum_url"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-string">"created_url"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-string">"step"</span>: <span class="hljs-string">"queuing"</span>,
-  <span class="hljs-string">"update_time"</span>: <span class="hljs-string">"2019-02-18T03:16:21.760Z"</span>,
-  <span class="hljs-string">"owner"</span>: <span class="hljs-string">"john"</span>,
-  <span class="hljs-string">"message"</span>: <span class="hljs-string">"queuing"</span>,
-  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">4</span>
+  <span class="hljs-string">&quot;percent&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;sum_url&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;created_url&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;step&quot;</span>: <span class="hljs-string">&quot;queuing&quot;</span>,
+  <span class="hljs-string">&quot;update_time&quot;</span>: <span class="hljs-string">&quot;2019-02-18T03:16:21.760Z&quot;</span>,
+  <span class="hljs-string">&quot;owner&quot;</span>: <span class="hljs-string">&quot;john&quot;</span>,
+  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;queuing&quot;</span>,
+  <span class="hljs-string">&quot;disk_usage&quot;</span>: <span class="hljs-number">4</span>
 }</code></pre>
-				<h4 id="list-artifacts">List artifacts</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.list()
+				<a href="#list-artifacts" id="list-artifacts" style="color: inherit; text-decoration: none;">
+					<h4>List artifacts</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.list()[
+  {
+    <span class="hljs-attr">artifact_id</span>: <span class="hljs-string">&quot;xxx-xxxxx-xxxxx&quot;</span>,
+    <span class="hljs-attr">status</span>: <span class="hljs-string">&quot;published-shifter&quot;</span>,
+    <span class="hljs-attr">context_status</span>: <span class="hljs-string">&quot;success&quot;</span>,
+    <span class="hljs-attr">created_at</span>: <span class="hljs-string">&quot;2019-02-18T03:15:49+00:00&quot;</span>,
+    <span class="hljs-attr">failure_pages</span>: <span class="hljs-string">&quot;[]&quot;</span>,
+  }
+];</code></pre>
+				<a href="#publish" id="publish" style="color: inherit; text-decoration: none;">
+					<h4>Publish</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> Client.publish(siteId, artifactId);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#stop-generating-artifact" id="stop-generating-artifact" style="color: inherit; text-decoration: none;">
+					<h4>Stop generating artifact</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.stopGenerating(siteId, artifactId);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#update-specific-artifact-name" id="update-specific-artifact-name" style="color: inherit; text-decoration: none;">
+					<h4>Update specific artifact name</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.updateName(siteId, artifactId, name);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#enable-preview" id="enable-preview" style="color: inherit; text-decoration: none;">
+					<h4>Enable preview</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.enablePreview(siteId, artifactId);
 
-[
- {
-   <span class="hljs-string">"artifact_id"</span>: <span class="hljs-string">"xxx-xxxxx-xxxxx"</span>,
-   <span class="hljs-string">"status"</span>: <span class="hljs-string">"published-shifter"</span>,
-   <span class="hljs-string">"context_status"</span>: <span class="hljs-string">"success"</span>,
-   <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2019-02-18T03:15:49+00:00"</span>,
-   <span class="hljs-string">"failure_pages"</span>: <span class="hljs-string">"[]"</span>
- }
-]</code></pre>
-				<h4 id="publish">Publish</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> Client.publish(siteId, artifactId)
-<span class="hljs-string">''</span></code></pre>
-				<h4 id="stop-generating-artifact">Stop generating artifact</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.stopGenerating(siteId, artifactId)
-<span class="hljs-string">""</span></code></pre>
-				<h4 id="update-specific-artifact-name">Update specific artifact name</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> sites = <span class="hljs-keyword">await</span> client.updateName(siteId, artifactId, name)
-<span class="hljs-string">""</span></code></pre>
-				<h4 id="enable-preview">Enable preview</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.enablePreview(siteId, artifactId)
-
-<span class="hljs-string">"https://xxxxx-xxxx-xxxxx-xxxx.preview.getshifter.io"</span></code></pre>
-				<h4 id="delete">Delete</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId, artifactId)
-<span class="hljs-string">""</span></code></pre>
-				<h3 id="organizations">Organizations</h3>
-				<h4 id="initilize">Initilize</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+(<span class="hljs-string">&quot;https://xxxxx-xxxx-xxxxx-xxxx.preview.getshifter.io&quot;</span>);</code></pre>
+				<a href="#delete" id="delete" style="color: inherit; text-decoration: none;">
+					<h4>Delete</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">await</span> client.delete(siteId, artifactId);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
+				<a href="#organizations" id="organizations" style="color: inherit; text-decoration: none;">
+					<h3>Organizations</h3>
+				</a>
+				<a href="#initilize-2" id="initilize-2" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Organizations.Foundation({
-  token: <span class="hljs-string">'ACCESS_TOKEN'</span>
-})</code></pre>
-				<h4 id="create">Create</h4>
-				<pre><code class="language-typescript">client.create({
-  org_name: <span class="hljs-string">'organization name'</span>
-}).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;ACCESS_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#create" id="create" style="color: inherit; text-decoration: none;">
+					<h4>Create</h4>
+				</a>
+				<pre><code class="language-typescript">client
+  .create({
+    <span class="hljs-attr">org_name</span>: <span class="hljs-string">&quot;organization name&quot;</span>,
+  })
+  .then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(result));
 
 {
-  org_id: <span class="hljs-string">'xxxxxxxxxxx'</span>
+  <span class="hljs-attr">org_id</span>: <span class="hljs-string">&quot;xxxxxxxxxxx&quot;</span>;
 }</code></pre>
-				<h4 id="update">Update</h4>
-				<pre><code class="language-typescript">client.update(<span class="hljs-string">'org_id'</span>, {
-  org_name: <span class="hljs-string">'organization name'</span>
-}).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+				<a href="#update" id="update" style="color: inherit; text-decoration: none;">
+					<h4>Update</h4>
+				</a>
+				<pre><code class="language-typescript">client
+  .update(<span class="hljs-string">&quot;org_id&quot;</span>, {
+    <span class="hljs-attr">org_name</span>: <span class="hljs-string">&quot;organization name&quot;</span>,
+  })
+  .then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h4 id="list">List</h4>
-				<pre><code class="language-typescript">client.list().then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
-
-[
- {
-    org_id: <span class="hljs-string">'xxxxx-xxxx-xxxx-xxxx'</span>,
-    org_name: <span class="hljs-string">'xxxxx'</span>,
-    org_owner: <span class="hljs-string">'xxxxxxx'</span>,
-    org_website: <span class="hljs-string">''</span>,
-    phone_number: <span class="hljs-string">''</span>,
-    org_country: <span class="hljs-string">''</span>,
-    org_state: <span class="hljs-string">''</span>,
-    org_twitter: <span class="hljs-string">''</span>,
-    org_size: <span class="hljs-string">''</span>,
-    projects: [],
-    members: []
+ok;</code></pre>
+				<a href="#list" id="list" style="color: inherit; text-decoration: none;">
+					<h4>List</h4>
+				</a>
+				<pre><code class="language-typescript">client.list().then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(result))[
+  {
+    <span class="hljs-attr">org_id</span>: <span class="hljs-string">&quot;xxxxx-xxxx-xxxx-xxxx&quot;</span>,
+    <span class="hljs-attr">org_name</span>: <span class="hljs-string">&quot;xxxxx&quot;</span>,
+    <span class="hljs-attr">org_owner</span>: <span class="hljs-string">&quot;xxxxxxx&quot;</span>,
+    <span class="hljs-attr">org_website</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">phone_number</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">org_country</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">org_state</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">org_twitter</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">org_size</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">projects</span>: [],
+    <span class="hljs-attr">members</span>: [],
   }
-] </code></pre>
-				<h4 id="describe">Describe</h4>
-				<pre><code class="language-typescript">client.descibe(<span class="hljs-string">'org_id'</span>)
+];</code></pre>
+				<a href="#describe" id="describe" style="color: inherit; text-decoration: none;">
+					<h4>Describe</h4>
+				</a>
+				<pre><code class="language-typescript">client.descibe(<span class="hljs-string">&#x27;org_id&#x27;</span>)
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 {
-  org_id: <span class="hljs-string">'xxxxx-xxxx-xxxx-xxxx'</span>,
-  org_name: <span class="hljs-string">'xxxxx'</span>,
-  org_owner: <span class="hljs-string">'xxxxxxx'</span>,
-  org_website: <span class="hljs-string">''</span>,
-  phone_number: <span class="hljs-string">''</span>,
-  org_country: <span class="hljs-string">''</span>,
-  org_state: <span class="hljs-string">''</span>,
-  org_twitter: <span class="hljs-string">''</span>,
-  org_size: <span class="hljs-string">''</span>,
-  projects: [],
-  members: []
+  <span class="hljs-attr">org_id</span>: <span class="hljs-string">&#x27;xxxxx-xxxx-xxxx-xxxx&#x27;</span>,
+  <span class="hljs-attr">org_name</span>: <span class="hljs-string">&#x27;xxxxx&#x27;</span>,
+  <span class="hljs-attr">org_owner</span>: <span class="hljs-string">&#x27;xxxxxxx&#x27;</span>,
+  <span class="hljs-attr">org_website</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+  <span class="hljs-attr">phone_number</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+  <span class="hljs-attr">org_country</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+  <span class="hljs-attr">org_state</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+  <span class="hljs-attr">org_twitter</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+  <span class="hljs-attr">org_size</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+  <span class="hljs-attr">projects</span>: [],
+  <span class="hljs-attr">members</span>: []
 }</code></pre>
-				<h4 id="delete">Delete</h4>
-				<pre><code class="language-typescript">client.delete(<span class="hljs-string">'org_id'</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+				<a href="#delete-1" id="delete-1" style="color: inherit; text-decoration: none;">
+					<h4>Delete</h4>
+				</a>
+				<pre><code class="language-typescript">client.delete(<span class="hljs-string">&quot;org_id&quot;</span>).then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h4 id="activate-invited-member">Activate invited member</h4>
-				<pre><code class="language-typescript">client.activateInvitation(<span class="hljs-string">'org_id'</span>, <span class="hljs-string">'key'</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+ok;</code></pre>
+				<a href="#activate-invited-member" id="activate-invited-member" style="color: inherit; text-decoration: none;">
+					<h4>Activate invited member</h4>
+				</a>
+				<pre><code class="language-typescript">client.activateInvitation(<span class="hljs-string">&quot;org_id&quot;</span>, <span class="hljs-string">&quot;key&quot;</span>).then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h3 id="organization-site">Organization Site</h3>
-				<h4 id="initilize">Initilize</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+ok;</code></pre>
+				<a href="#organization-site" id="organization-site" style="color: inherit; text-decoration: none;">
+					<h3>Organization Site</h3>
+				</a>
+				<a href="#initilize-3" id="initilize-3" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Organizations.Sites({
-  token: <span class="hljs-string">'YOUR_TOKEN'</span>
-})</code></pre>
-				<h4 id="list-site-of-organization">List site of organization</h4>
-				<pre><code class="language-typescript">client.list(<span class="hljs-string">'org_id'</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
-
-[
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;YOUR_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#list-site-of-organization" id="list-site-of-organization" style="color: inherit; text-decoration: none;">
+					<h4>List site of organization</h4>
+				</a>
+				<pre><code class="language-typescript">client.list(<span class="hljs-string">&quot;org_id&quot;</span>).then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(result))[
   {
-    <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"test-sub"</span>,
-    <span class="hljs-string">"stock_state"</span>: <span class="hljs-string">"inuse"</span>,
-    <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxxx-xxxxxx-xxxxxx-xxxxxx"</span>,
-    <span class="hljs-string">"project_owner"</span>: <span class="hljs-string">"xxxxxx"</span>,
-    <span class="hljs-string">"php_version"</span>: <span class="hljs-string">"7.2"</span>,
-    <span class="hljs-string">"access_url"</span>: <span class="hljs-string">"xxxxxxxxx.on.getshifter.io"</span>,
-    <span class="hljs-string">"update_time"</span>: <span class="hljs-string">""</span>,
-    <span class="hljs-string">"last_launched"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-string">"deploy_type"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-string">"raw_url"</span>: <span class="hljs-string">"xxxxxxxxx.cloudfront.net"</span>,
-    <span class="hljs-string">"create_time"</span>: <span class="hljs-string">"2018-07-05T07:41:25+00:00"</span>,
-    <span class="hljs-string">"automation"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-string">"generate_state"</span>: <span class="hljs-string">""</span>,
-    <span class="hljs-string">"trial"</span>: <span class="hljs-string">""</span>
+    <span class="hljs-attr">project_name</span>: <span class="hljs-string">&quot;test-sub&quot;</span>,
+    <span class="hljs-attr">stock_state</span>: <span class="hljs-string">&quot;inuse&quot;</span>,
+    <span class="hljs-attr">project_id</span>: <span class="hljs-string">&quot;xxxx-xxxxxx-xxxxxx-xxxxxx&quot;</span>,
+    <span class="hljs-attr">project_owner</span>: <span class="hljs-string">&quot;xxxxxx&quot;</span>,
+    <span class="hljs-attr">php_version</span>: <span class="hljs-string">&quot;7.2&quot;</span>,
+    <span class="hljs-attr">access_url</span>: <span class="hljs-string">&quot;xxxxxxxxx.on.getshifter.io&quot;</span>,
+    <span class="hljs-attr">update_time</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">last_launched</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">disk_usage</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">deploy_type</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">raw_url</span>: <span class="hljs-string">&quot;xxxxxxxxx.cloudfront.net&quot;</span>,
+    <span class="hljs-attr">create_time</span>: <span class="hljs-string">&quot;2018-07-05T07:41:25+00:00&quot;</span>,
+    <span class="hljs-attr">automation</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">generate_state</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">trial</span>: <span class="hljs-string">&quot;&quot;</span>,
   }
-]</code></pre>
-				<h4 id="get-site-of-organization">Get site of organization</h4>
-				<pre><code class="language-typescript">client.describe(<span class="hljs-string">'org_id'</span>, <span class="hljs-string">'site_id'</span>)
+];</code></pre>
+				<a href="#get-site-of-organization" id="get-site-of-organization" style="color: inherit; text-decoration: none;">
+					<h4>Get site of organization</h4>
+				</a>
+				<pre><code class="language-typescript">client.describe(<span class="hljs-string">&#x27;org_id&#x27;</span>, <span class="hljs-string">&#x27;site_id&#x27;</span>)
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 {
-  <span class="hljs-string">"project_name"</span>: <span class="hljs-string">"test-sub"</span>,
-  <span class="hljs-string">"stock_state"</span>: <span class="hljs-string">"inuse"</span>,
-  <span class="hljs-string">"project_id"</span>: <span class="hljs-string">"xxxx-xxxxxx-xxxxxx-xxxxxx"</span>,
-  <span class="hljs-string">"project_owner"</span>: <span class="hljs-string">"xxxxxx"</span>,
-  <span class="hljs-string">"php_version"</span>: <span class="hljs-string">"7.2"</span>,
-  <span class="hljs-string">"access_url"</span>: <span class="hljs-string">"xxxxxxxxx.on.getshifter.io"</span>,
-  <span class="hljs-string">"update_time"</span>: <span class="hljs-string">""</span>,
-  <span class="hljs-string">"last_launched"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">"disk_usage"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-string">"deploy_type"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">"raw_url"</span>: <span class="hljs-string">"xxxxxxxxx.cloudfront.net"</span>,
-  <span class="hljs-string">"create_time"</span>: <span class="hljs-string">"2018-07-05T07:41:25+00:00"</span>,
-  <span class="hljs-string">"automation"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">"generate_state"</span>: <span class="hljs-string">""</span>,
-  <span class="hljs-string">"trial"</span>: <span class="hljs-string">""</span>
+  <span class="hljs-string">&quot;project_name&quot;</span>: <span class="hljs-string">&quot;test-sub&quot;</span>,
+  <span class="hljs-string">&quot;stock_state&quot;</span>: <span class="hljs-string">&quot;inuse&quot;</span>,
+  <span class="hljs-string">&quot;project_id&quot;</span>: <span class="hljs-string">&quot;xxxx-xxxxxx-xxxxxx-xxxxxx&quot;</span>,
+  <span class="hljs-string">&quot;project_owner&quot;</span>: <span class="hljs-string">&quot;xxxxxx&quot;</span>,
+  <span class="hljs-string">&quot;php_version&quot;</span>: <span class="hljs-string">&quot;7.2&quot;</span>,
+  <span class="hljs-string">&quot;access_url&quot;</span>: <span class="hljs-string">&quot;xxxxxxxxx.on.getshifter.io&quot;</span>,
+  <span class="hljs-string">&quot;update_time&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-string">&quot;last_launched&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;disk_usage&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;deploy_type&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;raw_url&quot;</span>: <span class="hljs-string">&quot;xxxxxxxxx.cloudfront.net&quot;</span>,
+  <span class="hljs-string">&quot;create_time&quot;</span>: <span class="hljs-string">&quot;2018-07-05T07:41:25+00:00&quot;</span>,
+  <span class="hljs-string">&quot;automation&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;generate_state&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-string">&quot;trial&quot;</span>: <span class="hljs-string">&quot;&quot;</span>
 }</code></pre>
-				<h4 id="add-site-to-organization">Add site to organization</h4>
-				<pre><code class="language-typescript">client.add(<span class="hljs-string">'org_id'</span>, [<span class="hljs-string">'site_id'</span>])
-  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+				<a href="#add-site-to-organization" id="add-site-to-organization" style="color: inherit; text-decoration: none;">
+					<h4>Add site to organization</h4>
+				</a>
+				<pre><code class="language-typescript">client.add(<span class="hljs-string">&quot;org_id&quot;</span>, [<span class="hljs-string">&quot;site_id&quot;</span>]).then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h4 id="remove-site-from-organization">Remove site from organization</h4>
-				<pre><code class="language-typescript">client.remove(<span class="hljs-string">'org_id'</span>, [<span class="hljs-string">'site_id'</span>])
-  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+ok;</code></pre>
+				<a href="#remove-site-from-organization" id="remove-site-from-organization" style="color: inherit; text-decoration: none;">
+					<h4>Remove site from organization</h4>
+				</a>
+				<pre><code class="language-typescript">client.remove(<span class="hljs-string">&quot;org_id&quot;</span>, [<span class="hljs-string">&quot;site_id&quot;</span>]).then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h3 id="organization-members">Organization Members</h3>
-				<h4 id="initilize">Initilize</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+ok;</code></pre>
+				<a href="#organization-members" id="organization-members" style="color: inherit; text-decoration: none;">
+					<h3>Organization Members</h3>
+				</a>
+				<a href="#initilize-4" id="initilize-4" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Organizations.Members({
-  token: <span class="hljs-string">'YOUR_TOKEN'</span>
-})</code></pre>
-				<h4 id="list-site-of-organization">List site of organization</h4>
-				<pre><code class="language-typescript">client.list(<span class="hljs-string">'org_id'</span>)
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;YOUR_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#list-site-of-organization-1" id="list-site-of-organization-1" style="color: inherit; text-decoration: none;">
+					<h4>List site of organization</h4>
+				</a>
+				<pre><code class="language-typescript">client.list(<span class="hljs-string">&#x27;org_id&#x27;</span>)
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
 [
   {
-    <span class="hljs-string">"username"</span>: <span class="hljs-string">"johndoe"</span>,
-    <span class="hljs-string">"email"</span>: <span class="hljs-string">"hhoge@example.com"</span>,
-    <span class="hljs-string">"user_status"</span>: <span class="hljs-string">"approval"</span>
-    <span class="hljs-string">"role"</span>: <span class="hljs-string">"owner"</span>
+    <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;johndoe&quot;</span>,
+    <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;hhoge@example.com&quot;</span>,
+    <span class="hljs-string">&quot;user_status&quot;</span>: <span class="hljs-string">&quot;approval&quot;</span>
+    <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;owner&quot;</span>
   }
 ]</code></pre>
-				<h4 id="add-member-to-organization">Add member to organization</h4>
-				<pre><code class="language-typescript">client.add(<span class="hljs-string">'org_id'</span>, <span class="hljs-string">'hoge@example.com'</span>, <span class="hljs-string">'username'</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+				<a href="#add-member-to-organization" id="add-member-to-organization" style="color: inherit; text-decoration: none;">
+					<h4>Add member to organization</h4>
+				</a>
+				<pre><code class="language-typescript">client
+  .add(<span class="hljs-string">&quot;org_id&quot;</span>, <span class="hljs-string">&quot;hoge@example.com&quot;</span>, <span class="hljs-string">&quot;username&quot;</span>)
+  .then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h4 id="remove-members-from-organization">Remove members from organization</h4>
-				<pre><code class="language-typescript">client.remove(<span class="hljs-string">'org_id'</span>, [<span class="hljs-string">'username'</span>])
-  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok'</span>))
+ok;</code></pre>
+				<a href="#remove-members-from-organization" id="remove-members-from-organization" style="color: inherit; text-decoration: none;">
+					<h4>Remove members from organization</h4>
+				</a>
+				<pre><code class="language-typescript">client.remove(<span class="hljs-string">&quot;org_id&quot;</span>, [<span class="hljs-string">&quot;username&quot;</span>]).then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;ok&quot;</span>));
 
-ok</code></pre>
-				<h3 id="status">Status</h3>
-				<h4 id="initilize">Initilize</h4>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Organizations } <span class="hljs-keyword">from</span> <span class="hljs-string">'shifter-sdk'</span>
+ok;</code></pre>
+				<a href="#status" id="status" style="color: inherit; text-decoration: none;">
+					<h3>Status</h3>
+				</a>
+				<a href="#initilize-5" id="initilize-5" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Status } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
 
-<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Organizations.Foundation({
-  token: <span class="hljs-string">'YOUR_TOKEN'</span>
-})</code></pre>
-				<h4 id="describe-status">Describe status</h4>
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Status({
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;YOUR_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#describe-status" id="describe-status" style="color: inherit; text-decoration: none;">
+					<h4>Describe status</h4>
+				</a>
 				<pre><code class="language-typescript">client.descibe()
   .then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result))
 
-{ maintenance:
-   { message:
-      <span class="hljs-string">'XXXXXXXXXXXx'</span>,
-     target: [ <span class="hljs-string">'generator'</span>, <span class="hljs-string">'container'</span> ],
-     status: <span class="hljs-string">'not_maintenance'</span> },
-  user:
-   { credit_card_status: <span class="hljs-string">'registered'</span>,
-     upper_limit_projects: <span class="hljs-string">'50'</span>,
-     notification: { email: [<span class="hljs-built_in">Object</span>] },
-     group: { name: <span class="hljs-string">'owner'</span> },
-     max_transfer_gb: <span class="hljs-string">'10240'</span>,
-     max_disk_gb: <span class="hljs-string">'1024'</span>,
-     domain_setting: <span class="hljs-string">'true'</span>,
-     import_archives: <span class="hljs-string">'true'</span>,
-     export_archives: <span class="hljs-string">'true'</span>,
-     backup: <span class="hljs-string">'365'</span>,
-     enable_subuser: <span class="hljs-string">'true'</span>,
-     export_artifact: <span class="hljs-string">'true'</span> } }</code></pre>
+{ <span class="hljs-attr">maintenance</span>:
+   { <span class="hljs-attr">message</span>:
+      <span class="hljs-string">&#x27;XXXXXXXXXXXx&#x27;</span>,
+     <span class="hljs-attr">target</span>: [ <span class="hljs-string">&#x27;generator&#x27;</span>, <span class="hljs-string">&#x27;container&#x27;</span> ],
+     <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;not_maintenance&#x27;</span> },
+  <span class="hljs-attr">user</span>:
+   { <span class="hljs-attr">credit_card_status</span>: <span class="hljs-string">&#x27;registered&#x27;</span>,
+     <span class="hljs-attr">upper_limit_projects</span>: <span class="hljs-string">&#x27;50&#x27;</span>,
+     <span class="hljs-attr">notification</span>: { <span class="hljs-attr">email</span>: [<span class="hljs-built_in">Object</span>] },
+     <span class="hljs-attr">group</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;owner&#x27;</span> },
+     <span class="hljs-attr">max_transfer_gb</span>: <span class="hljs-string">&#x27;10240&#x27;</span>,
+     <span class="hljs-attr">max_disk_gb</span>: <span class="hljs-string">&#x27;1024&#x27;</span>,
+     <span class="hljs-attr">domain_setting</span>: <span class="hljs-string">&#x27;true&#x27;</span>,
+     <span class="hljs-attr">import_archives</span>: <span class="hljs-string">&#x27;true&#x27;</span>,
+     <span class="hljs-attr">export_archives</span>: <span class="hljs-string">&#x27;true&#x27;</span>,
+     <span class="hljs-attr">backup</span>: <span class="hljs-string">&#x27;365&#x27;</span>,
+     <span class="hljs-attr">enable_subuser</span>: <span class="hljs-string">&#x27;true&#x27;</span>,
+     <span class="hljs-attr">export_artifact</span>: <span class="hljs-string">&#x27;true&#x27;</span> } }</code></pre>
+				<a href="#webhookssite" id="webhookssite" style="color: inherit; text-decoration: none;">
+					<h3>Webhooks(Site)</h3>
+				</a>
+				<a href="#initilize-6" id="initilize-6" style="color: inherit; text-decoration: none;">
+					<h4>Initilize</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Webhooks } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;shifter-sdk&quot;</span>;
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Webhooks.Site({
+  <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;YOUR_TOKEN&quot;</span>,
+});</code></pre>
+				<a href="#add-new-webhook" id="add-new-webhook" style="color: inherit; text-decoration: none;">
+					<h4>Add new Webhook</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.create(siteId, [
+  {
+    <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created&quot;</span>,
+    <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-attr">enabled</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">headers</span>: {},
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;post&quot;</span>,
+  },
+])[
+  {
+    <span class="hljs-attr">enabled</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-attr">webhook_url</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-attr">headers</span>: {},
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-attr">site_id</span>: <span class="hljs-string">&quot;bfd1fbde-8f01-11e8-aa52-9ad4a0753b52&quot;</span>,
+  }
+];</code></pre>
+				<a href="#update-webhook" id="update-webhook" style="color: inherit; text-decoration: none;">
+					<h4>Update Webhook</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.update(siteId, [
+  {
+    <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-attr">enabled</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">headers</span>: { <span class="hljs-string">&quot;x-test&quot;</span>: <span class="hljs-string">&quot;hoge&quot;</span> },
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;post&quot;</span>,
+  },
+])[
+  {
+    <span class="hljs-attr">enabled</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-attr">webhook_url</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-attr">headers</span>: { <span class="hljs-string">&quot;x-test&quot;</span>: <span class="hljs-string">&quot;hoge&quot;</span> },
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-attr">site_id</span>: <span class="hljs-string">&quot;bfd1fbde-8f01-11e8-aa52-9ad4a0753b52&quot;</span>,
+  }
+];</code></pre>
+				<a href="#list-webhook" id="list-webhook" style="color: inherit; text-decoration: none;">
+					<h4>List Webhook</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.list(siteId)[
+  {
+    <span class="hljs-attr">enabled</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-attr">webhook_url</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-attr">headers</span>: {},
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-attr">site_id</span>: <span class="hljs-string">&quot;bfd1fbde-8f01-11e8-aa52-9ad4a0753b52&quot;</span>,
+  }
+];</code></pre>
+				<a href="#delete-webhook" id="delete-webhook" style="color: inherit; text-decoration: none;">
+					<h4>Delete Webhook</h4>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.delete(siteId, [
+  {
+    <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+  },
+]);
+(<span class="hljs-string">&quot;&quot;</span>);</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -552,71 +725,71 @@ ok</code></pre>
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_artifacts_index_.html">"artifacts/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_artifacts_index_.html">&quot;artifacts/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_auth_index_.html">"auth/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_auth_index_.html">&quot;auth/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_coupon_index_.html">"coupon/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_coupon_index_.html">&quot;coupon/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_helpers_client_.html">"helpers/client"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_helpers_client_.html">&quot;helpers/client&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_helpers_configfactory_.html">"helpers/config<wbr>Factory"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_helpers_configfactory_.html">&quot;helpers/config<wbr>Factory&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_intercom_hmac_.html">"intercom/hmac"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_intercom_hmac_.html">&quot;intercom/hmac&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_intercom_index_.html">"intercom/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_intercom_index_.html">&quot;intercom/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_invoices_index_.html">"invoices/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_invoices_index_.html">&quot;invoices/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_model_.html">"model"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_model_.html">&quot;model&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_organizations_client_.html">"organizations/client"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_organizations_client_.html">&quot;organizations/client&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_organizations_foundation_.html">"organizations/foundation"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_organizations_foundation_.html">&quot;organizations/foundation&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_organizations_index_.html">"organizations/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_organizations_index_.html">&quot;organizations/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_organizations_member_.html">"organizations/member"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_organizations_member_.html">&quot;organizations/member&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_organizations_site_.html">"organizations/site"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_organizations_site_.html">&quot;organizations/site&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_sites_index_.html">"sites/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_sites_index_.html">&quot;sites/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_statistics_sitetransfer_.html">"statistics/<wbr>Site<wbr>Transfer"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_statistics_sitetransfer_.html">&quot;statistics/<wbr>Site<wbr>Transfer&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_statistics_index_.html">"statistics/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_statistics_index_.html">&quot;statistics/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_statistics_usagesummary_.html">"statistics/usage<wbr>Summary"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_statistics_usagesummary_.html">&quot;statistics/usage<wbr>Summary&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_status_index_.html">"status/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_status_index_.html">&quot;status/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_webhooks_index_.html">"webhooks/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_webhooks_index_.html">&quot;webhooks/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_webhooks_site_.html">"webhooks/site"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/_webhooks_site_.html">&quot;webhooks/site&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -632,65 +805,19 @@ ok</code></pre>
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

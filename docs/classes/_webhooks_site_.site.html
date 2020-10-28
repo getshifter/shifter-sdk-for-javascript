@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Site | shifter-sdk</title>
-	<meta name="description" content="">
+	<title>Site | @shifter/node</title>
+	<meta name="description" content="Documentation for @shifter/node">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">shifter-sdk</a>
+					<a href="../index.html" class="title">@shifter/node</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -95,8 +95,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_webhooks_site_.site.html#namespace" class="tsd-kind-icon">namespace</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_webhooks_site_.site.html#version" class="tsd-kind-icon">version</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_webhooks_site_.site.html#namespace" class="tsd-kind-icon">namespace</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_webhooks_site_.site.html#version" class="tsd-kind-icon">version</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -124,7 +124,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_helpers_client_.client.html">Client</a>.<a href="_helpers_client_.client.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/megumiteam/shifter-sdk-for-javascript/blob/7e23973/libs/helpers/client.ts#L17">helpers/client.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/helpers/client.ts#L17">helpers/client.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -133,7 +133,7 @@
 									<h5>config: <a href="../modules/_model_.api.html#constructorprops" class="tsd-signature-type">constructorProps</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> client: <span class="tsd-signature-type">AxiosInstance</span><span class="tsd-signature-symbol"> =&nbsp;axios</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> client: <span class="tsd-signature-type">AxiosInstance</span><span class="tsd-signature-symbol"> = axios</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_webhooks_site_.site.html" class="tsd-signature-type">Site</a></h4>
@@ -143,23 +143,25 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="namespace" class="tsd-anchor"></a>
 					<h3>namespace</h3>
-					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;webhooks&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;webhooks/site&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Overrides Client.namespace</p>
 						<ul>
-							<li>Defined in webhooks/site.ts:9</li>
+							<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/webhooks/site.ts#L9">webhooks/site.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="version" class="tsd-anchor"></a>
 					<h3>version</h3>
-					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;v2&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;v2&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Overrides Client.version</p>
 						<ul>
-							<li>Defined in webhooks/site.ts:8</li>
+							<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/webhooks/site.ts#L8">webhooks/site.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in webhooks/site.ts:61</li>
+									<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/webhooks/site.ts#L61">webhooks/site.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -187,20 +189,20 @@
 									<dt>example</dt>
 									<dd><pre><code class="language-typescript">
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.create(siteId, [{
-  hook_event: <span class="hljs-string">'Webhook:Artifact:Created'</span>,
-  url: <span class="hljs-string">'https://hoge.example.com'</span>,
-  enabled: <span class="hljs-literal">false</span>,
-  headers: {},
-  method: <span class="hljs-string">'post'</span>
+  <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&#x27;Webhook:Artifact:Created&#x27;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;https://hoge.example.com&#x27;</span>,
+  <span class="hljs-attr">enabled</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">headers</span>: {},
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;post&#x27;</span>
 }])
 [
   {
-    <span class="hljs-string">"enabled"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-string">"hook_event"</span>: <span class="hljs-string">"Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed"</span>,
-    <span class="hljs-string">"webhook_url"</span>: <span class="hljs-string">"https://hoge.example.com"</span>,
-    <span class="hljs-string">"headers"</span>: {},
-    <span class="hljs-string">"method"</span>: <span class="hljs-string">"post"</span>,
-    <span class="hljs-string">"site_id"</span>: <span class="hljs-string">"bfd1fbde-8f01-11e8-aa52-9ad4a0753b52"</span>
+    <span class="hljs-string">&quot;enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;hook_event&quot;</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-string">&quot;webhook_url&quot;</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-string">&quot;headers&quot;</span>: {},
+    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-string">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;bfd1fbde-8f01-11e8-aa52-9ad4a0753b52&quot;</span>
   }
 ]</code></pre>
 									</dd>
@@ -235,7 +237,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in webhooks/site.ts:110</li>
+									<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/webhooks/site.ts#L110">webhooks/site.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,9 +248,9 @@
 									<dt>example</dt>
 									<dd><pre><code class="language-typescript">
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.delete(siteId, [{
-  hook_event: <span class="hljs-string">'Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed'</span>
+  <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&#x27;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&#x27;</span>
 }])
-<span class="hljs-string">""</span></code></pre>
+<span class="hljs-string">&quot;&quot;</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -281,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in webhooks/site.ts:30</li>
+									<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/webhooks/site.ts#L30">webhooks/site.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,12 +296,12 @@
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.list(siteId)
 [
   {
-    <span class="hljs-string">"enabled"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-string">"hook_event"</span>: <span class="hljs-string">"Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed"</span>,
-    <span class="hljs-string">"webhook_url"</span>: <span class="hljs-string">"https://hoge.example.com"</span>,
-    <span class="hljs-string">"headers"</span>: {},
-    <span class="hljs-string">"method"</span>: <span class="hljs-string">"post"</span>,
-    <span class="hljs-string">"site_id"</span>: <span class="hljs-string">"bfd1fbde-8f01-11e8-aa52-9ad4a0753b52"</span>
+    <span class="hljs-string">&quot;enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;hook_event&quot;</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-string">&quot;webhook_url&quot;</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-string">&quot;headers&quot;</span>: {},
+    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-string">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;bfd1fbde-8f01-11e8-aa52-9ad4a0753b52&quot;</span>
   }
 ]</code></pre>
 									</dd>
@@ -328,7 +330,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in webhooks/site.ts:92</li>
+									<li>Defined in <a href="https://github.com/getshifter/shifter-sdk-for-javascript/blob/0bf4543/libs/webhooks/site.ts#L92">webhooks/site.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -339,20 +341,20 @@
 									<dt>example</dt>
 									<dd><pre><code class="language-typescript">
 <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> client.update(siteId, [{
-  hook_event: <span class="hljs-string">'Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed'</span>,
-  url: <span class="hljs-string">'https://hoge.example.com'</span>,
-  enabled: <span class="hljs-literal">true</span>,
-  headers: { <span class="hljs-string">'x-test'</span>: <span class="hljs-string">'hoge'</span> },
-  method: <span class="hljs-string">'post'</span>
+  <span class="hljs-attr">hook_event</span>: <span class="hljs-string">&#x27;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&#x27;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;https://hoge.example.com&#x27;</span>,
+  <span class="hljs-attr">enabled</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">headers</span>: { <span class="hljs-string">&#x27;x-test&#x27;</span>: <span class="hljs-string">&#x27;hoge&#x27;</span> },
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;post&#x27;</span>
 }])
 [
   {
-    <span class="hljs-string">"enabled"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-string">"hook_event"</span>: <span class="hljs-string">"Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed"</span>,
-    <span class="hljs-string">"webhook_url"</span>: <span class="hljs-string">"https://hoge.example.com"</span>,
-    <span class="hljs-string">"headers"</span>: { <span class="hljs-string">'x-test'</span>: <span class="hljs-string">'hoge'</span> },
-    <span class="hljs-string">"method"</span>: <span class="hljs-string">"post"</span>,
-    <span class="hljs-string">"site_id"</span>: <span class="hljs-string">"bfd1fbde-8f01-11e8-aa52-9ad4a0753b52"</span>
+    <span class="hljs-string">&quot;enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;hook_event&quot;</span>: <span class="hljs-string">&quot;Webhook:Artifact:Created#d34c85ad-d50a-4efe-a52a-1023b30e37ed&quot;</span>,
+    <span class="hljs-string">&quot;webhook_url&quot;</span>: <span class="hljs-string">&quot;https://hoge.example.com&quot;</span>,
+    <span class="hljs-string">&quot;headers&quot;</span>: { <span class="hljs-string">&#x27;x-test&#x27;</span>: <span class="hljs-string">&#x27;hoge&#x27;</span> },
+    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-string">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;bfd1fbde-8f01-11e8-aa52-9ad4a0753b52&quot;</span>
   }
 ]</code></pre>
 									</dd>
@@ -385,71 +387,71 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_artifacts_index_.html">"artifacts/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_artifacts_index_.html">&quot;artifacts/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_auth_index_.html">"auth/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_auth_index_.html">&quot;auth/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_coupon_index_.html">"coupon/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_coupon_index_.html">&quot;coupon/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_helpers_client_.html">"helpers/client"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_helpers_client_.html">&quot;helpers/client&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_helpers_configfactory_.html">"helpers/config<wbr>Factory"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_helpers_configfactory_.html">&quot;helpers/config<wbr>Factory&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_index_.html">"index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_intercom_hmac_.html">"intercom/hmac"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_intercom_hmac_.html">&quot;intercom/hmac&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_intercom_index_.html">"intercom/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_intercom_index_.html">&quot;intercom/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_invoices_index_.html">"invoices/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_invoices_index_.html">&quot;invoices/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_model_.html">"model"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_model_.html">&quot;model&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_organizations_client_.html">"organizations/client"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_organizations_client_.html">&quot;organizations/client&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_organizations_foundation_.html">"organizations/foundation"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_organizations_foundation_.html">&quot;organizations/foundation&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_organizations_index_.html">"organizations/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_organizations_index_.html">&quot;organizations/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_organizations_member_.html">"organizations/member"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_organizations_member_.html">&quot;organizations/member&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_organizations_site_.html">"organizations/site"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_organizations_site_.html">&quot;organizations/site&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_sites_index_.html">"sites/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_sites_index_.html">&quot;sites/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_statistics_sitetransfer_.html">"statistics/<wbr>Site<wbr>Transfer"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_statistics_sitetransfer_.html">&quot;statistics/<wbr>Site<wbr>Transfer&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_statistics_index_.html">"statistics/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_statistics_index_.html">&quot;statistics/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_statistics_usagesummary_.html">"statistics/usage<wbr>Summary"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_statistics_usagesummary_.html">&quot;statistics/usage<wbr>Summary&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_status_index_.html">"status/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_status_index_.html">&quot;status/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_webhooks_index_.html">"webhooks/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_webhooks_index_.html">&quot;webhooks/index&quot;</a>
 					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_webhooks_site_.html">"webhooks/site"</a>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_webhooks_site_.html">&quot;webhooks/site&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -457,16 +459,16 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
 						<a href="_webhooks_site_.site.html" class="tsd-kind-icon">Site</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 								<a href="_webhooks_site_.site.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_webhooks_site_.site.html#namespace" class="tsd-kind-icon">namespace</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_webhooks_site_.site.html#version" class="tsd-kind-icon">version</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -485,6 +487,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_webhooks_site_.html#webhook" class="tsd-kind-icon">Webhook</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -495,65 +500,24 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
